@@ -13,7 +13,7 @@ const home = () => {
   }, 5000)
   console.log({ state })
   return (
-    <div>home {state}</div>
+    <div>home {state} lalalalal</div>
   )
 }
 
