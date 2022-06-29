@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "common/*": [
+          "./common/*"
+        ],
+        "components":[
+            "components/*"
+        ],
+        "controller":[
+            "controller/*"
+        ],
+      }
+    },
+    "include": [
+      "**/*.js" 
+    ]
+  }

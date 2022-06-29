@@ -1,0 +1,24 @@
+{
+    "presets": [
+        "@babel/preset-react",
+        [
+          "next/babel"
+        ]
+    ],
+    "plugins": [
+      ["module-resolver", {
+        "root": ["./"],
+        "alias": {
+          "common": "./common",
+          "underscore": "lodash"
+        }
+      }],
+      [
+        "@babel/plugin-transform-arrow-functions"
+      ],
+      "@babel/plugin-syntax-dynamic-import"
+    ],
+      "include": [
+        "**/*.js"
+    ]    
+  }
