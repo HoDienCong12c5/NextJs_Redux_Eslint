@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
+import 'dotenv/config'
 const { useBabelRc, override } = require('customize-cra')
-require('dotenv').config()
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true

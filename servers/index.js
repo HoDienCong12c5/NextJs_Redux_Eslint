@@ -1,4 +1,5 @@
 // server.js
+import 'dotenv/config'
 const next = require('next')
 const routes = require('../common/router')
 const app = next({ dev: process.env.NODE_ENV !== 'production' })

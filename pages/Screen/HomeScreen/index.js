@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 // import ReduxServices from 'common/reduxService'
+import 'dotenv/config'
 import {
   Container,
   Input,
@@ -12,7 +13,6 @@ import Link from 'next/link'
 import Web3Service from 'common/web'
 import { fireStores } from 'services/firebase'
 import { collection, getDocs } from 'firebase/firestore'
-
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts'
 const ADDRESS = '0xE66D10adACcec763694DA8800944eb10d091C668'
 const HomeScreen = () => {
@@ -42,14 +42,14 @@ const HomeScreen = () => {
     }
   }
   const getDataFirebase = async () => {
-    console.log(process.env.PORT)
+    console.log(await process.env.FirebaseConfig)
     const querySnapshot = await getDocs(collection(fireStores, 'User'))
     querySnapshot.forEach((doc) => {
       // console.log(`${doc.id} => ${doc.data()}`)
       // const data = doc.data()
       // console.log({ data })
       // console.log(process.env.FirebaseConfig)
-      console.log(process.env.PORT)
+      console.log(process.env.FirebaseConfig)
     })
   }
   const send = async () => {
