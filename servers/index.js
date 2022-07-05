@@ -1,6 +1,7 @@
 // server.js
-import 'dotenv/config'
+// import 'dotenv/config'
 const next = require('next')
+require('dotenv').config()
 const routes = require('../common/router')
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handler = routes.getRequestHandler(app)

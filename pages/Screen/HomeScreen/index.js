@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 // import ReduxServices from 'common/reduxService'
-import 'dotenv/config'
+
 import {
   Container,
   Input,
@@ -15,13 +15,14 @@ import { fireStores } from 'services/firebase'
 import { collection, getDocs } from 'firebase/firestore'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts'
 const ADDRESS = '0xE66D10adACcec763694DA8800944eb10d091C668'
+ 
 const HomeScreen = () => {
   // store
   const state = useSelector(state => state.getName)
 
   // use state
   const [nameNew, setNameNew] = useState('')
-  // const [value, setValue] = useState(0)
+  const [dataFi, setDataFi] = useState([])
   const [balance, setBalance] = useState(0)
   const [isSubmit, setIsSubmit] = useState(false)
   // use effect
@@ -41,17 +42,16 @@ const HomeScreen = () => {
     //   inItAddress()
     }
   }
-  const getDataFirebase = async () => {
-    console.log(await process.env.FirebaseConfig)
+  const getDataFirebase = async () => { 
+    console.log(process.env.apiKey) 
     const querySnapshot = await getDocs(collection(fireStores, 'User'))
     querySnapshot.forEach((doc) => {
-      // console.log(`${doc.id} => ${doc.data()}`)
-      // const data = doc.data()
-      // console.log({ data })
-      // console.log(process.env.FirebaseConfig)
-      console.log(process.env.FirebaseConfig)
+      const data = doc.data().data
+      setDataFi([dataFi,...data])
+      console.log({data}) 
     })
   }
+  console.log({dataFi})
   const send = async () => {
     // const result = await Web3Service.sendTransaction(ADDRESS, ADDRESS, 1)
   }
