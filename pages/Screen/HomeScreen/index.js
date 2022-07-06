@@ -12,11 +12,9 @@ import { validateAddress } from 'common/function'
 import Link from 'next/link'
 import Web3Service from 'common/web'
 import { fireStores } from 'services/firebase'
-import { collection, getDocs } from 'firebase/firestore'
-import CustomLink from 'components/CustomLink'
+import { collection, getDocs, doc, updateDoc, addDoc } from 'firebase/firestore'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts'
 const ADDRESS = '0xE66D10adACcec763694DA8800944eb10d091C668'
-
 const HomeScreen = () => {
   // store
   const state = useSelector(state => state.getName)
@@ -33,7 +31,6 @@ const HomeScreen = () => {
       setBalance(balance)
     }
     getbalace()
-    getDataFirebase()
   }, [])
   const setnameNew = () => {
     if (validateAddress(nameNew)) {
@@ -44,24 +41,48 @@ const HomeScreen = () => {
     }
   }
   const getDataFirebase = async () => {
-    console.log(process.env.apiKey)
     const arr = []
     const querySnapshot = await getDocs(collection(fireStores, 'User'))
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach(async (doc) => {
       const data = doc.data()
       data.id = doc.id
+      // const temp={
+      //   id:doc.id,
+      //   name:data.name,
+      //   address:data.address,
+      //   pass:data.pass,
+      //   addressWallet:data.addressWallet,
+      //   privateKey:data.privateKey,
+      //   sdt:data.sdt,
+      //   token:data.token,
+      //   x:data.x,
+      //   y:data.y,
+      //   image:data.image,
+      //   checkWorker:data.checkWorker,
+      // }
       arr.push(data)
       console.log({ data })
     })
-    setDataFi([...dataFi, arr])
+    setDataFi(arr)
   }
-  console.log({ dataFi })
+  const setNameFireBase = async (id, name) => {
+    const querySnapshot = await doc(fireStores, 'User', id)
+    await updateDoc(querySnapshot, {
+      name
+    })
+  }
+  const setAddressFireBase = async (noteNew, address) => {
+    const docRef = await addDoc(collection(fireStores, 'User'), {
+      name: noteNew
+    })
+  }
   const send = async () => {
     // const result = await Web3Service.sendTransaction(ADDRESS, ADDRESS, 1)
   }
 
   useEffect(() => {
     send()
+    getDataFirebase()
   }, [])
   const renderLineChart = () => {
     const data = []
@@ -110,9 +131,8 @@ const HomeScreen = () => {
         href={'/Screen/ProfileScreen/:id'}
         as={'/profile/123'}
       >
-        <a style={{ color: 'red' }}>Home</a>
+        <a style={{ color: 'red' }}>Profile</a>
       </Link>
-
       <ChartContainer>
           balance :{ balance }
       </ChartContainer>
@@ -131,7 +151,7 @@ const HomeScreen = () => {
       </CustomLink>npm run */}
       <Buttons
         isSubmit={isSubmit}
-        onClick={setnameNew}
+        onClick={() => setNameFireBase()}
       >
           Submit
       </Buttons>
@@ -141,24 +161,10 @@ const HomeScreen = () => {
       {
         dataFi.map((item, index) => {
           return (
-            <div key={index}>
-              {item.map((item, index) => {
-                return (
-                  <div key={index}>
-                    {item.name}
-                  </div>
-                )
-              }
-              )}
-            </div>
+            <div onClick={() => setNameFireBase(item.id, 'congga')} key={index}> {item.name}</div>
           )
         })
       }
-      {/* <CustomLink route={'/profile/13'} >
-        <a>
-          home
-        </a>
-      </CustomLink> */}
     </Container>
   )
 }

@@ -14,10 +14,12 @@
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
   "rules": {
-    "no-undef": "error",
+    "no-undef": "error", 
     "no-unused-vars": "error",
     "react/prop-types": 0,
     "no-console": 0,
