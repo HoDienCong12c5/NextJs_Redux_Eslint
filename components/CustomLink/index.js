@@ -1,17 +1,28 @@
 import React from 'react'
-import { Link, Router } from 'common/router'
-
-export default ({ route, children }) => {
-  let className = children?.props?.className || ''
-  const current = Router.asPath?.split('?')[0]?.split('/')?.join('')?.split(' ')?.join('')
-  const propRoute = route.split('?')[0]?.split('/')?.join('')?.split(' ')?.join('')
-  if (current === propRoute) {
-    className = `${className} selected`
-  }
-  if (route) {
+import Link from 'next/link'
+const getPathPage = (path) => {
+}
+export default ({ route, children, query = null }) => {
+  const className = children.props.className || ''
+  if (query) {
     return (
-      <Link route={route}>{React.cloneElement(children, { className })}</Link>
+      <Link
+        href={
+          {
+            pathname: getPathPage(route),
+            query
+          }
+        }
+        as={route}
+      >{React.cloneElement(children, { className })}</Link>
     )
+  } else {
+    <Link
+      href={getPathPage(route)}
+      as={route}
+    >
+      {React.cloneElement(children, { className })}
+    </Link>
   }
   return React.cloneElement(children, { className })
 }

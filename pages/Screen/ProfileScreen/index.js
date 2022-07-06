@@ -1,12 +1,16 @@
+import { useRouter } from 'next/router'
 import React from 'react'
+const ProfileScreen = () => {
+  const router = useRouter()
+  const { id, name } = router.query
+  console.log({ id }, { name })
 
-const ProfileScreen = (props) => {
   return (
     <div>ProfileScreen</div>
   )
 }
 ProfileScreen.getInitialProps = async ({ query }) => {
-  const { id } = query
-  return { id }
+  const { id, name } = query
+  return { id, name }
 }
 export default ProfileScreen

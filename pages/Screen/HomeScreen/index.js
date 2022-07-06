@@ -13,9 +13,10 @@ import Link from 'next/link'
 import Web3Service from 'common/web'
 import { fireStores } from 'services/firebase'
 import { collection, getDocs } from 'firebase/firestore'
+import CustomLink from 'components/CustomLink'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts'
 const ADDRESS = '0xE66D10adACcec763694DA8800944eb10d091C668'
- 
+
 const HomeScreen = () => {
   // store
   const state = useSelector(state => state.getName)
@@ -42,16 +43,19 @@ const HomeScreen = () => {
     //   inItAddress()
     }
   }
-  const getDataFirebase = async () => { 
-    console.log(process.env.apiKey) 
+  const getDataFirebase = async () => {
+    console.log(process.env.apiKey)
+    const arr = []
     const querySnapshot = await getDocs(collection(fireStores, 'User'))
     querySnapshot.forEach((doc) => {
-      const data = doc.data().data
-      setDataFi([dataFi,...data])
-      console.log({data}) 
+      const data = doc.data()
+      data.id = doc.id
+      arr.push(data)
+      console.log({ data })
     })
+    setDataFi([...dataFi, arr])
   }
-  console.log({dataFi})
+  console.log({ dataFi })
   const send = async () => {
     // const result = await Web3Service.sendTransaction(ADDRESS, ADDRESS, 1)
   }
@@ -88,7 +92,24 @@ const HomeScreen = () => {
       <div>
         home {state} lalalalal
       </div>
-      <Link href="/Screen/ProfileScreen ">
+      <Link
+        href={
+          {
+            pathname: '/Screen/ProfileScreen',
+            query: {
+              id: '123',
+              name: 'congga'
+            }
+          }
+        }
+        // as={'/profile/123/congga'}
+      >
+        <a style={{ color: 'red' }}>Home</a>
+      </Link>
+      <Link
+        href={'/Screen/ProfileScreen/:id'}
+        as={'/profile/123'}
+      >
         <a style={{ color: 'red' }}>Home</a>
       </Link>
 
@@ -117,6 +138,27 @@ const HomeScreen = () => {
       {
         renderLineChart()
       }
+      {
+        dataFi.map((item, index) => {
+          return (
+            <div key={index}>
+              {item.map((item, index) => {
+                return (
+                  <div key={index}>
+                    {item.name}
+                  </div>
+                )
+              }
+              )}
+            </div>
+          )
+        })
+      }
+      {/* <CustomLink route={'/profile/13'} >
+        <a>
+          home
+        </a>
+      </CustomLink> */}
     </Container>
   )
 }
