@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 // import ReduxServices from 'common/reduxService'
-import 'dotenv/config'
+
 import {
   Container,
   Input,
@@ -12,7 +12,7 @@ import { validateAddress } from 'common/function'
 import Link from 'next/link'
 import Web3Service from 'common/web'
 import { fireStores } from 'services/firebase'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, doc, updateDoc, addDoc } from 'firebase/firestore'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts'
 const ADDRESS = '0xE66D10adACcec763694DA8800944eb10d091C668'
 const HomeScreen = () => {
@@ -21,7 +21,7 @@ const HomeScreen = () => {
 
   // use state
   const [nameNew, setNameNew] = useState('')
-  // const [value, setValue] = useState(0)
+  const [dataFi, setDataFi] = useState([])
   const [balance, setBalance] = useState(0)
   const [isSubmit, setIsSubmit] = useState(false)
   // use effect
@@ -31,7 +31,6 @@ const HomeScreen = () => {
       setBalance(balance)
     }
     getbalace()
-    getDataFirebase()
   }, [])
   const setnameNew = () => {
     if (validateAddress(nameNew)) {
@@ -42,14 +41,39 @@ const HomeScreen = () => {
     }
   }
   const getDataFirebase = async () => {
-    console.log(await process.env.FirebaseConfig)
+    const arr = []
     const querySnapshot = await getDocs(collection(fireStores, 'User'))
-    querySnapshot.forEach((doc) => {
-      // console.log(`${doc.id} => ${doc.data()}`)
-      // const data = doc.data()
-      // console.log({ data })
-      // console.log(process.env.FirebaseConfig)
-      console.log(process.env.FirebaseConfig)
+    querySnapshot.forEach(async (doc) => {
+      const data = doc.data()
+      data.id = doc.id
+      // const temp={
+      //   id:doc.id,
+      //   name:data.name,
+      //   address:data.address,
+      //   pass:data.pass,
+      //   addressWallet:data.addressWallet,
+      //   privateKey:data.privateKey,
+      //   sdt:data.sdt,
+      //   token:data.token,
+      //   x:data.x,
+      //   y:data.y,
+      //   image:data.image,
+      //   checkWorker:data.checkWorker,
+      // }
+      arr.push(data)
+      console.log({ data })
+    })
+    setDataFi(arr)
+  }
+  const setNameFireBase = async (id, name) => {
+    const querySnapshot = await doc(fireStores, 'User', id)
+    await updateDoc(querySnapshot, {
+      name
+    })
+  }
+  const setAddressFireBase = async (noteNew, address) => {
+    const docRef = await addDoc(collection(fireStores, 'User'), {
+      name: noteNew
     })
   }
   const send = async () => {
@@ -58,6 +82,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     send()
+    getDataFirebase()
   }, [])
   const renderLineChart = () => {
     const data = []
@@ -88,10 +113,26 @@ const HomeScreen = () => {
       <div>
         home {state} lalalalal
       </div>
-      <Link href="/Screen/ProfileScreen ">
+      <Link
+        href={
+          {
+            pathname: '/Screen/ProfileScreen',
+            query: {
+              id: '123',
+              name: 'congga'
+            }
+          }
+        }
+        // as={'/profile/123/congga'}
+      >
         <a style={{ color: 'red' }}>Home</a>
       </Link>
-
+      <Link
+        href={'/Screen/ProfileScreen/:id'}
+        as={'/profile/123'}
+      >
+        <a style={{ color: 'red' }}>Profile</a>
+      </Link>
       <ChartContainer>
           balance :{ balance }
       </ChartContainer>
@@ -110,12 +151,19 @@ const HomeScreen = () => {
       </CustomLink>npm run */}
       <Buttons
         isSubmit={isSubmit}
-        onClick={setnameNew}
+        onClick={() => setNameFireBase()}
       >
           Submit
       </Buttons>
       {
         renderLineChart()
+      }
+      {
+        dataFi.map((item, index) => {
+          return (
+            <div onClick={() => setNameFireBase(item.id, 'congga')} key={index}> {item.name}</div>
+          )
+        })
       }
     </Container>
   )

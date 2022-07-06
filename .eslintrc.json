@@ -14,10 +14,12 @@
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
   "rules": {
-    "no-undef": "error",
+    "no-undef": "error", 
     "no-unused-vars": "error",
     "react/prop-types": 0,
     "no-console": 0,
@@ -25,6 +27,8 @@
     "react/no-string-refs": 0,
     "react/display-name": "off",
     "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
     "indent": [
       2,
       2
