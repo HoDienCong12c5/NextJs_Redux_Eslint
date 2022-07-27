@@ -28,16 +28,16 @@ const nextConfig = {
       options: {
         name: '[path][name].[ext]'
       }
-    }) 
+    })
     config.plugins.push(new webpack.DefinePlugin(env))
 
     return config
   },
   env: {
-    GREETING: "Hello World",
+    GREETING: 'Hello World'
   }
 
-} 
+}
 module.exports = override(
   useBabelRc()
 )
@@ -52,4 +52,6 @@ module.exports = {
     }
   }
 }
+const withTM = require('next-transpile-modules')(['three'])
+module.exports = withTM()
 module.exports = nextConfig
