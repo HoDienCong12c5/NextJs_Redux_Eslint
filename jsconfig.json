@@ -1,19 +1,11 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "common/*": [
-          "./common/*"
-        ],
-        "components":[
-            "components/*"
-        ],
-        "controller":[
-            "controller/*"
-        ],
-      }
-    },
-    "include": [
-      "**/*.js" 
-    ]
-  }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "common/*": ["./common/*"],
+      "components": ["components/*"],
+      "controller": ["controller/*"]
+    }
+  },
+  "include": ["**/*.js"]
+}

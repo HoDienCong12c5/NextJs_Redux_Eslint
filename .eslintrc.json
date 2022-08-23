@@ -1,12 +1,16 @@
 {
   "extends": [
-    "eslint:recommended",
     "plugin:react/recommended",
     "standard",
-    "standard-react"
+    "standard-react",
+    "prettier",
+    "plugin:react-hooks/recommended"
   ],
   "env": {
-    "es6": true
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
   },
   "plugins": [
     "react"
@@ -20,15 +24,21 @@
   },
   "rules": {
     "no-undef": "error", 
-    "no-unused-vars": "error",
     "react/prop-types": 0,
     "no-console": 0,
-    "react/sort-comp": 2,
-    "react/no-string-refs": 0,
+    // "react/sort-comp": 2,
+    // "react/no-string-refs": 0,
     "react/display-name": "off",
+    "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
-    "react/no-unescaped-entities": "off",
-    "@next/next/no-page-custom-font": "off",
+    "quotes": ["error", "double"],
+    "no-multi-spaces": "warn",
+    "semi": "error",
+    "no-trailing-spaces": ["error", { "ignoreComments": true }],
+    // "react/no-unescaped-entities": "off",
+    // "@next/next/no-page-custom-font": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "indent": [
       2,
       2

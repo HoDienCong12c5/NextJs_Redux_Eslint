@@ -1,9 +1,9 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react"
+import Link from "next/link"
 const getPathPage = (path) => {
 }
 export default ({ route, children, query = null }) => {
-  const className = children.props.className || ''
+  const className = children.props.className || ""
   if (query) {
     return (
       <Link

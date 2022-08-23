@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router'
-import React from 'react'
+import { useRouter } from "next/router"
+import React from "react"
 const ProfileScreen = () => {
   const router = useRouter()
   const { id, name } = router.query

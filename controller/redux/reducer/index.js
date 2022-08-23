@@ -1,6 +1,6 @@
-import * as pageReducers from './pageReducer'
+import * as pageReducers from "./pageReducer"
 
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux"
 
 const rootReducer = combineReducers({
   ...pageReducers

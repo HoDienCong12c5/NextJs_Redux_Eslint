@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import React from 'react'
+import styled from "styled-components"
+import React from "react"
 export const Container = styled.div`
     width: 100%;
     align-items: center;  
@@ -23,7 +23,7 @@ export const Input = styled.input`
     }
 `
 export const Buttons = styled.button`
-    background-color: ${props => props.isSubmit ? 'green' : 'red'};
+    background-color: ${props => props.isSubmit ? "green" : "red"};
 `
 export const ChartContainer = styled.div`
     &:hover{
