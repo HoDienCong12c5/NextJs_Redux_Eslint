@@ -10,7 +10,12 @@
         "root": ["./"],
         "alias": {
           "common": "./common",
-          "pages": "./pages"
+          "pages": "./pages",
+          "controller":"./controller",
+          "components":"components",
+          "assets":"./assets",
+          "services":"./services"
+          
         }
       }],
       [

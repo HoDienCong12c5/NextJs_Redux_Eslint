@@ -1,11 +1,12 @@
-import "../styles/globals.css"
-import { Provider } from "react-redux"
-import store from "controller/redux/store "
-import App from "next/app"
-import React from "react"
+import '../styles/globals.css'
+import { Provider } from 'react-redux'
+import store from 'controller/redux/store'
+import App from 'next/app'
+import React from 'react'
 class XCreation extends App {
   render () {
     const { Component, pageProps } = this.props
+
     return (
       <Provider store={store}>
         <Component {...pageProps} />

@@ -28,16 +28,16 @@ const nextConfig = {
       options: {
         name: '[path][name].[ext]'
       }
-    }) 
+    })
     config.plugins.push(new webpack.DefinePlugin(env))
 
     return config
   },
   env: {
-    GREETING: "Hello World",
+    GREETING: 'Hello World',
   }
 
-} 
+}
 module.exports = override(
   useBabelRc()
 )
@@ -51,5 +51,12 @@ module.exports = {
       '/profile': { page: 'Screen/ProfileScreen' }
     }
   }
+}
+const path = require('path')
+
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
 }
 module.exports = nextConfig

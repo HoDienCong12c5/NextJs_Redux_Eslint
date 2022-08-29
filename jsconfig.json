@@ -3,8 +3,11 @@
     "baseUrl": ".",
     "paths": {
       "common/*": ["./common/*"],
-      "components": ["components/*"],
-      "controller": ["controller/*"]
+      "components": ["./components/*"],
+      "controller": ["./controller/*"],
+      "pages": ["./pages/*"],
+      "assets":["./assets/*"],
+      "services":["./services/*"]
     }
   },
   "include": ["**/*.js"]

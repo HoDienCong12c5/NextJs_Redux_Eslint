@@ -31,7 +31,7 @@
     "react/display-name": "off",
     "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "no-multi-spaces": "warn",
     "semi": "error",
     "no-trailing-spaces": ["error", { "ignoreComments": true }],
