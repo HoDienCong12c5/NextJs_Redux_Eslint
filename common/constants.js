@@ -1,4 +1,4 @@
-import { images } from 'config/images'
+// import { images } from 'config/images'
 
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
 export const RELOAD_MY_NFT = 'RELOAD_MY_NFT'
@@ -45,11 +45,28 @@ export const RoutePage = {
     path:'/Screen/ProfileScreen',
     as:'/profile/'
   },
-  proFile:{
-    path:'/Screen/ProfileScreen',
-    as:'/profile/'
+  about:{
+    path:'/Screen/About',
+    as:'/about/'
+  },
+  contact:{
+    path:'/Screen/Contact',
+    as:'/contact/'
   }
 }
+export const Color = {
+  text:'white',
+  white:'rgba(255,255,255,1)',
+  white1:'rgba(255,255,255,0.9)',
+  grey:'rgb(25, 25, 25)',
+  red:'red',
+  green:'green',
+  purple: 'rgba(100, 61, 167, 1)',
+  blue: 'blue',
+  orange: 'rgba(255, 153, 0, 1)',
+  legendary:'linear-gradient(269.09deg, #104AFB 0.78%, #00FFD1 99.53%)'
+}
+
 
 
 

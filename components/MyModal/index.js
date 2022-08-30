@@ -1,7 +1,6 @@
 import React from 'react'
-import { Modal } from 'antd'
-import './style.scss'
-import {CloseCircleOutlined } from  from '@ant-design/icons';
+import {ModalBase } from './style'
+import {CloseCircleOutlined } from '@ant-design/icons'
 class MyModal extends React.Component {
   constructor (props) {
     super(props)
@@ -40,8 +39,8 @@ class MyModal extends React.Component {
   render () {
     const { isShowModal, modalContent, config } = this.state
     return (
-      <Modal
-        wrapClassName={config.wrapClassName}
+      <ModalBase
+        wrapClassName={`modal-base ${config.wrapClassName}`}
         width={config.modalWidth}
         title={null}
         footer={null}
@@ -58,7 +57,7 @@ class MyModal extends React.Component {
         closeIcon={<CloseCircleOutlined />}
       >
         {modalContent && modalContent}
-      </Modal>
+      </ModalBase>
     )
   }
 }

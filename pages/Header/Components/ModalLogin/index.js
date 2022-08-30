@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 const ContainerModal = styled.div`
     width:100%;
-    justifyContent: center;
+    justify-content: center;
 `
 const ModalLogin = () => {
   return (

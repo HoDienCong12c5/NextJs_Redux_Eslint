@@ -12,7 +12,7 @@ padding: 0px 50px;
 export const ContainerHome=styled.div`
     width:100%;
     display:flex;
-    justifyContent: center;
+    justify-content: center;
     max-width: 1550px;
 
 `

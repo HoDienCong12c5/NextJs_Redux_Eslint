@@ -1,6 +1,7 @@
 import React ,{useEffect, useState, useRef} from 'react'
 import HeaderPage, {ContainerHome, Right, Left} from './style'
 import Media from 'react-media'
+import MyModal from 'components/MyModal'
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false)
   const myModal = useRef(null)

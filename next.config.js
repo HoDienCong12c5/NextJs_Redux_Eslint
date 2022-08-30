@@ -2,7 +2,11 @@
 require('dotenv').config()
 const webpack = require('webpack')
 const { useBabelRc, override } = require('customize-cra')
+const path = require('path')
 const nextConfig = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
   reactStrictMode: true,
   trailingSlash: true,
   webpack (config) {
@@ -52,11 +56,5 @@ module.exports = {
     }
   }
 }
-const path = require('path')
 
-module.exports = {
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
-}
 module.exports = nextConfig

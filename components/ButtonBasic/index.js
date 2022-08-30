@@ -3,10 +3,10 @@ import {Button } from 'antd'
 import styled from 'styled-components'
 const ContainerBtn = styled.div`
 display: flex;
-alignItems: :center;
-justifyContent: 'center';
+align-items: center;
+justify-content: center;
 padding: 10px;
-borderRadius: 8px;
+border-radius: 8px;
 `
 const ButtonCustom = styled(Button)`
   
