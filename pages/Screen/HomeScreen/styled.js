@@ -1,43 +1,45 @@
+import ButtonBasic from 'components/ButtonBasic'
+import ImageBase from 'components/Image'
+import NormalText, { MediumText, TitleText } from 'components/Text'
 import styled from 'styled-components'
-import React from 'react'
-export const Container = styled.div`
-    width: 100%;
-    align-items: center;  
-`
-export const Input = styled.input`  
-    width: 100%;
-    border:0px;
-    &:hover{
-        border:0px;
-    }
-    &:focus{
-        border:0px;
 
-    }
-    &:focus-visible{
-        border:0px solid red;
-        background-color: #f5f5f5;
-        padding: 10px;
-        outline: none;
-        border-radius: 0px;
-    }
+const CvContainer = styled.div`
 `
-export const Buttons = styled.button`
-    background-color: ${props => props.isSubmit ? 'green' : 'red'};
+export const CvInfor = styled.div`
+    width:35% ;
+    display:flex ;
+    flex-flow: column wrap ;
+    gap:20px;
 `
-export const ChartContainer = styled.div`
-    &:hover{
-        
-        transform: translate(0, -5px);
-        transform: scale(1.1,1.1);
-        cursor: pointer;
-    }
+export const TitleInfor = styled(TitleText)`
+    font-size:36px;
 `
-const X = () => {
-  return (
-    <div>
-      <h1>X</h1>
-    </div>
-  )
-}
-export default X
+export const Description = styled(NormalText)`
+
+`
+export const ProductMain = styled.div`
+    width:35%; 
+`
+
+export const Element = styled.div`
+   width:30%;  
+`
+export const TitleSub = styled(MediumText)`
+
+`
+export const PriceBig = styled(TitleText)`
+    font-size:24px;
+`
+export const Image = styled(ImageBase)`
+    width:100% ;
+`
+export const Icon = styled(ImageBase)`
+    width:80px;
+    height:80px;
+`
+export const BtnBuy = styled(ButtonBasic)`
+    width:80px;
+    height:80px
+`
+export default CvContainer
+

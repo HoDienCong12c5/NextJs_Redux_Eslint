@@ -1,5 +1,5 @@
 import React from 'react'
-import {ModalBase } from './style'
+import ModalBase from './style'
 import {CloseCircleOutlined } from '@ant-design/icons'
 class MyModal extends React.Component {
   constructor (props) {

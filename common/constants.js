@@ -8,7 +8,8 @@ export const NamePage = {
   profile: 'Profile',
   about: 'About',
   contact: 'Contact',
-  productDetails: 'Product Details'
+  productDetails: 'Product Details',
+  myCart:'My Cart'
 }
 export const Title = {
   price: 'Price',
@@ -49,10 +50,22 @@ export const RoutePage = {
     path:'/Screen/About',
     as:'/about/'
   },
+  productDetails:{
+    path:'/Screen/ProductDetail/',
+    as:'/product-detail/'
+  },
   contact:{
     path:'/Screen/Contact',
     as:'/contact/'
-  }
+  },
+  myCart:{
+    path:'/Screen/MyCart',
+    as:'/my-cart/'
+  },
+  CvCEO:{
+    path:'/Screen/CvCEO',
+    as:'/Cv-Ceo-Founder/'
+  },
 }
 export const Color = {
   text:'white',
@@ -64,9 +77,9 @@ export const Color = {
   purple: 'rgba(100, 61, 167, 1)',
   blue: 'blue',
   orange: 'rgba(255, 153, 0, 1)',
-  legendary:'linear-gradient(269.09deg, #104AFB 0.78%, #00FFD1 99.53%)'
+  legendary:'linear-gradient(269.09deg, #104AFB 0.78%, #00FFD1 99.53%)',
+  black:'black'
 }
-
 
 
 

@@ -14,7 +14,8 @@
           "controller":"./controller",
           "components":"components",
           "assets":"./assets",
-          "services":"./services"
+          "services":"./services",
+          "public":"./public"
           
         }
       }],

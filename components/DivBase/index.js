@@ -33,4 +33,15 @@ export const DivAll = styled.div`
   width: 100%;
   padding: 10px;
 `
+export const Div = styled.div`
+  width: 100%;
+  padding: 0px 100px;
+  /* background-color:${Color.grey} ; */
+  @media screen and (max-width: 768px) {
+    padding: 0px 50px;
+  }
+  @media screen and (max-width: 568px) {
+    padding: 0px 20px;
+  }
+`
 export default DivNormal
