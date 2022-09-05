@@ -4,31 +4,49 @@ const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
 export const RELOAD_MY_NFT = 'RELOAD_MY_NFT'
 
 export const NamePage = {
-  home: 'Home',
-  profile: 'Profile',
-  about: 'About',
-  contact: 'Contact',
-  productDetails: 'Product Details',
-  myCart:'My Cart'
+  home: 'Trang chủ',
+  profile: 'Trang cá nhân',
+  about: 'Thông tin',
+  contact: 'Liên Hệ',
+  productDetails: 'Chi tiết sản phẩm',
+  myCart:'Giỏ hàng'
+}
+export const Button = {
+  buy: 'Mua ngay',
+  cancel: 'Thoát',
+  contact: 'Liên hệ',
+  send: 'Gửi',
+  submit:'Xác nhận',
+  back:'Quay lại'
 }
 export const Title = {
-  price: 'Price',
-  nameProduct: 'Name',
-  oder: 'Oder',
-  cart: 'Cart',
-  cancel: 'Cancel',
-  call:'Call',
-  message:'Message',
-  description:'Description',
-  details:'Details',
-  save:'Save',
-  total:'Total',
-  content:'Content'
+  price: 'Giá',
+  nameProduct: 'Tên',
+  oder: 'Đặt hàng',
+  cart: 'Giỏ hàng',
+  cancel: 'Thoát',
+  call:'Gọi',
+  message:'Tin nhắn',
+  description:'Mô tả',
+  details:'CHi tiết',
+  save:'Lưu',
+  total:'Tổng',
+  content:'Liên hệ',
+  element:'Thành phần',
+  origin:'Nơi sản xuất',
+  flavoring:'Hương vị',
+  solugun:'Cà phê ngon nhất, tốt nhất cho bạn'
+}
+export const Des = {
+  element: '\n Với hàm lượng từ các loại Robusta, Arabica, Cherry',
+  origin: '100% cà phê nguyên chất từ gia lai',
+  flavoring:'Với hơng vị thơm đặc trưng coffe Gia Lai đám say người uống',
+  solugun:'Gia Lai từ xưa là nơi nổi tiếng về cà phê cũng như trải qua 50 năm kinh nghiệm trong lĩnh vực trồng và sản xuất cà phê chúng tôi tự hào là nơi phát triển cà phê tốt nhất và ngon nhất. Từ ưu điểm đó chúng tôi muốn đem những hương vị cà phê và chất lượng tốt nhất có thể đến với bạn và ra thế giới'
 }
 export const Warning = {
-  enoughPrice: 'Enough Price',
-  sureDelete: 'Sure Delete',
-  buy: 'Buy',
+  enoughPrice: 'Không đủ tiền',
+  sureDelete: 'Bạn có mún xóa',
+  buy: 'Mua',
   cart: 'Cart',
   cancel: 'Cancel',
   call:'Call',
@@ -78,7 +96,8 @@ export const Color = {
   blue: 'blue',
   orange: 'rgba(255, 153, 0, 1)',
   legendary:'linear-gradient(269.09deg, #104AFB 0.78%, #00FFD1 99.53%)',
-  black:'black'
+  black:'black',
+  bgrMain:'rgb(240,230,222)'
 }
 
 

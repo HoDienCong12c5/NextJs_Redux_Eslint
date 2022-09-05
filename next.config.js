@@ -4,11 +4,6 @@ const webpack = require('webpack')
 const { useBabelRc, override } = require('customize-cra')
 const path = require('path')
 const nextConfig = {
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
-  reactStrictMode: true,
-  trailingSlash: true,
   webpack (config) {
     // Returns environment variables as an object
     const env = Object.keys(process.env).reduce((acc, curr) => {

@@ -1,9 +1,8 @@
 import React ,{useEffect, useState, useRef} from 'react'
-import HeaderPage, {NameHost,ContainerHome, Right, Left, MenuHome} from './style'
+import HeaderPage, {Image,NameHost,ContainerHome, Right, Left, MenuHome} from './style'
 import Media from 'react-media'
 import MyModal from 'components/MyModal'
 import {NamePage} from 'common/constants'
-import Image from 'components/Image'
 import Img from 'common/images'
 import {MediumText} from 'components/Text'
 const itemMenu=[
@@ -24,7 +23,7 @@ const Header = () => {
         <div style={{display:'flex', alignItems:'center', gap:15}}>
           <Image src={Img.home.logo}/>
           <NameHost fontWeight>
-          Coffee of You
+            Coffee của bạn
           </NameHost>
 
         </div>
@@ -71,7 +70,8 @@ const Header = () => {
     </HeaderPage>
   )
 }
-Header.getInitialProps = async ({ query }) => {
-
-}
+// Header.getInitialProps = async ({ query }) => {
+//   const { id} = query
+//   return {id}
+// }
 export default Header

@@ -28,20 +28,19 @@
     "no-console": 0,
     // "react/sort-comp": 2,
     // "react/no-string-refs": 0,
+    // "space-in-brackets": ["warn", "always"],
+    // "space-before-blocks": "error",
     "react/display-name": "off",
     "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
     "quotes": ["error", "single"],
-    "no-multi-spaces": "warn",
+    "no-multi-spaces": "error",
     "semi": "error",
     "no-trailing-spaces": ["error", { "ignoreComments": true }],
     // "react/no-unescaped-entities": "off",
     // "@next/next/no-page-custom-font": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "indent": [
-      2,
-      2
-    ]
+    "indent": [2, 2]
   }
 }

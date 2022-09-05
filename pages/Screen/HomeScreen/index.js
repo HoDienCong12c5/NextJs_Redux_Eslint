@@ -1,26 +1,30 @@
-import { Div } from 'components/DivBase'
+import {Div} from 'components/DivBase'
 import React from 'react'
-import CvContainer, {
-  CvInfor,
+import HomeContainer, {
+  HomeInfor,
   ProductMain,
   Element,
   TitleInfor,
   Description,
   TitleSub,
   PriceBig,
-  BtnBuy
+  BtnBuy,
+  ImageMain
 } from './styled'
+import Img from 'common/images'
 import Media from 'react-media'
+import TypeElement from './Components/TypeElement'
+import {Title, Des} from 'common/constants'
 const Home = () => {
   const renderDesktop =()=>{
     return (
-      <CvContainer>
-        <CvInfor >
+      <HomeContainer>
+        <HomeInfor >
           <TitleInfor >
-            Caffesdfsdf
+            {Title.solugun}
           </TitleInfor>
           <Description >
-            ádasd sdfsd s f
+            {Des.solugun}
           </Description>
           <PriceBig>
             {'120.000 VNĐ'}
@@ -28,8 +32,31 @@ const Home = () => {
           <BtnBuy >
             Mua ngay
           </BtnBuy>
-        </CvInfor>
-      </CvContainer>
+        </HomeInfor>
+        <ProductMain >
+          <ImageMain
+            src={Img.home.logo}
+            fullSize
+          />
+        </ProductMain>
+        <Element>
+          <TypeElement
+            icon=''
+            title={Title.element}
+            description={Des.element}
+          />
+          <TypeElement
+            icon=''
+            title={Title.origin}
+            description={Des.origin}
+          />
+          <TypeElement
+            icon=''
+            title={Title.flavoring}
+            description={Des.flavoring}
+          />
+        </Element>
+      </HomeContainer>
     )
   }
   return (

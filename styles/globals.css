@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+.mdl-js{
+  background-color: rgb(240,230,222) !important;
+
+}

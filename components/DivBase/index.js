@@ -33,6 +33,11 @@ export const DivAll = styled.div`
   width: 100%;
   padding: 10px;
 `
+export const DivRow = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+`
 export const Div = styled.div`
   width: 100%;
   padding: 0px 100px;
