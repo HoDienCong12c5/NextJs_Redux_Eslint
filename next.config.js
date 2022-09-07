@@ -3,6 +3,7 @@ require('dotenv').config()
 const webpack = require('webpack')
 const { useBabelRc, override } = require('customize-cra')
 const path = require('path')
+const withTM = require('next-transpile-modules')(['three'])
 const nextConfig = {
   webpack (config) {
     // Returns environment variables as an object
@@ -40,6 +41,17 @@ const nextConfig = {
 module.exports = override(
   useBabelRc()
 )
+
+module.exports = withTM({
+  webpack (config, options) {
+    config.module.rules.push({
+      test: /\.(glb|gltf|fbx|glsl|vs|fs|vert|frag|OBJ|COLLADA)$/,
+      use: {
+        loader: 'file-loader'
+      }
+    })
+  }
+})
 module.exports = {
   exportPathMap: async function (
     defaultPathMap,
