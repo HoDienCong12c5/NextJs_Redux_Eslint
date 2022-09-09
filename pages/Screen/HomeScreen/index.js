@@ -9,7 +9,8 @@ import HomeContainer, {
   TitleSub,
   PriceBig,
   BtnBuy,
-  ImageMain
+  ImageMain,
+  ContainerFooterHome
 } from './styled'
 import Img from 'common/images'
 import Media from 'react-media'
@@ -30,7 +31,7 @@ const Home = () => {
           <PriceBig>
             {'120.000 VNĐ'}
           </PriceBig>
-          <BtnBuy >
+          <BtnBuy fontBold fontSize={20}>
             Mua ngay
           </BtnBuy>
         </HomeInfor>
@@ -42,12 +43,12 @@ const Home = () => {
         </ProductMain>
         <Element>
           <TypeElement
-            icon=''
+            icon={Img.home.iconElement}
             title={Title.element}
             description={Des.element}
           />
           <TypeElement
-            icon=''
+            icon={Img.home.iconOrigin}
             title={Title.origin}
             description={Des.origin}
           />
@@ -57,6 +58,9 @@ const Home = () => {
             description={Des.flavoring}
           />
         </Element>
+        <ContainerFooterHome >
+          asdsaf
+        </ContainerFooterHome>
       </HomeContainer>
     )
   }
@@ -69,18 +73,22 @@ const Home = () => {
   }
   return (
     <Div>
-      {/* <Media query='(min-width:768px)'>
+      <Media query='(min-width:768px)'>
         {(match) => {
           if (match) {
             return renderDesktop()
           }
-          // return renderDesktop()
+        // return renderDesktop()
         }}
-      </Media> */}
-      <NFT />
-
-      adfghdsfg
+      </Media>
     </Div>
+
+  // <Div>
+
+  //   <NFT />
+
+  //   adfghdsfg
+  // </Div>
   )
 }
 export default Home

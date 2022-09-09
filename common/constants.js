@@ -97,7 +97,8 @@ export const Color = {
   orange: 'rgba(255, 153, 0, 1)',
   legendary:'linear-gradient(269.09deg, #104AFB 0.78%, #00FFD1 99.53%)',
   black:'black',
-  bgrMain:'rgb(240,230,222)'
+  bgrMain:'rgb(240,230,222)',
+  chocolate:'#d2691e'
 }
 
 
