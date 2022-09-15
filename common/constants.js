@@ -17,7 +17,8 @@ export const Button = {
   contact: 'Liên hệ',
   send: 'Gửi',
   submit:'Xác nhận',
-  back:'Quay lại'
+  back:'Quay lại',
+  detail:'Chi tiết'
 }
 export const Title = {
   price: 'Giá',

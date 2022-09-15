@@ -40,7 +40,7 @@ const Home = () => {
             src={Img.home.logo}
             fullSize
           />
-        </ProductMain>
+        </ProductMain >
         <Element>
           <TypeElement
             icon={Img.home.iconElement}
@@ -64,7 +64,7 @@ const Home = () => {
       </HomeContainer>
     )
   }
-  const render3D= () => {
+  const render3D=() => {
     setTimeout(() => {
       return (
         <NFT />
