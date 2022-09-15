@@ -7,7 +7,8 @@ const TypeContainer = styled(DivRow)`
     justify-content: flex-start;
     display: flex;
     flex-flow: row wrap;
-    gap: 4%;
+    gap: 2%;
+    width: 100% ;
 `
 const TitleType = styled(TitleText)`
   width: 68%;
