@@ -16,7 +16,6 @@ import Img from 'common/images'
 import Media from 'react-media'
 import TypeElement from './Components/TypeElement'
 import {Title, Des} from 'common/constants'
-import NFT from './NftDetails'
 const Home = () => {
   const renderDesktop =()=>{
     return (
@@ -64,13 +63,7 @@ const Home = () => {
       </HomeContainer>
     )
   }
-  const render3D=() => {
-    setTimeout(() => {
-      return (
-        <NFT />
-      )
-    },500)
-  }
+
   return (
     <Div>
       <Media query='(min-width:768px)'>
@@ -82,13 +75,6 @@ const Home = () => {
         }}
       </Media>
     </Div>
-
-  // <Div>
-
-  //   <NFT />
-
-  //   adfghdsfg
-  // </Div>
   )
 }
 export default Home

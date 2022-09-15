@@ -1,6 +1,5 @@
 import React from 'react'
-import {
-  ContainerOther,
+import ContainerOther, {
   ImageCustom,
   Title,
   Details,
