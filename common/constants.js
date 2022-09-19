@@ -21,6 +21,12 @@ export const Button = {
   detail:'Chi tiết'
 }
 export const Title = {
+  product:{
+    product1:'Loại 1',
+    product2:'Loại 2',
+    product3:'Loại 3',
+    product4:'Loại 4'
+  },
   price: 'Giá',
   nameProduct: 'Tên',
   oder: 'Đặt hàng',
@@ -101,7 +107,5 @@ export const Color = {
   bgrMain:'rgb(240,230,222)',
   chocolate:'#d2691e'
 }
-
-
 
 export default ()=>NULL_ADDRESS

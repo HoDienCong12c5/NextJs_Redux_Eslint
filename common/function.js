@@ -1,5 +1,7 @@
 import bigdecimal from 'bigdecimal'
 import { notification, message } from 'antd'
+import { useRouter } from 'next/router'
+
 export const sum = async (a, b) => {
   return a + b
 }
@@ -75,6 +77,10 @@ export const ellipsisAddress = (
     address.length - suffixLength,
     suffixLength
   )}`
+}
+export const pageNext=(url,as)=>{
+  const router = useRouter()
+  router.push(url,as, { shallow: true })
 }
 
 export default () => {}

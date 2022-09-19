@@ -7,8 +7,10 @@ import ContainerOther, {
 } from './style'
 import Media from 'react-media'
 import {Div} from 'components/DivBase'
-import {Button} from 'common/constants'
+import {Button, Title as Name, RoutePage} from 'common/constants'
+import { useRouter } from 'next/router'
 const Item=({src, title, des})=>{
+ 
   return (
     <ItemOther >
       <ImageCustom
@@ -19,23 +21,32 @@ const Item=({src, title, des})=>{
     </ItemOther>
   )
 }
+const onClick=(index)=>{
+  const router = useRouter()
+  router.push(`${RoutePage.productDetails.path}`,`${RoutePage.productDetails.as}/?id=${index}`, { shallow: true })
+}
+
 const OtherItem = () => {
   const renderDesktop = ()=>{
     return(
       <ContainerOther>
         <Item
+          onClick={()=>onClick(0)}
           src={''}
-          title={''}
+          title={Name.product.product1}
           desc={Button.detail}
         />
         <Item
+          onClick={()=>onClick(1)}
           src={''}
-          title={''}
+          title={Name.product.product2}
           desc={Button.detail}
         />
         <Item
+          onClick={()=>onClick(2)}
+
           src={''}
-          title={''}
+          title={Name.product.product3}
           desc={Button.detail}
         />
       </ContainerOther>

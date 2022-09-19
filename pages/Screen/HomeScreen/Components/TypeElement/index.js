@@ -43,7 +43,6 @@ const TypeElement = ({
         }
       </div>
 
-
       <TitleType >
         {title}
         <DesType >
