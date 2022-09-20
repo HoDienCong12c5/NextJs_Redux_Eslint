@@ -5,6 +5,8 @@ import MyModal from 'components/MyModal'
 import {NamePage} from 'common/constants'
 import Img from 'common/images'
 import {MediumText} from 'components/Text'
+import firebase from 'services/firebase'
+
 const itemMenu=[
   { label: NamePage.home, key: NamePage.home }, // remember to pass the key prop
   { label: NamePage.about, key: NamePage.about },
@@ -56,6 +58,17 @@ const Header = () => {
   const renderMobile=()=>{
 
   }
+  useEffect(() => {
+    const get =async ()=>{
+      // const data=await firebase.addProduct(
+      //   {cong:'success'}
+      //   )
+      // console.log({data});
+    }
+    get()
+   
+  }, [])
+  
   return (
     <HeaderPage>
       <Media query='(min-width: 768px)'>

@@ -66,14 +66,15 @@ const Home = () => {
 
   return (
     <Div>
-      <Media query='(min-width:768px)'>
+      {/* <Media query='(min-width:768px)'>
         {(match) => {
           if (match) {
             return renderDesktop()
           }
         // return renderDesktop()
         }}
-      </Media>
+      </Media> */}
+      sad
     </Div>
   )
 }
