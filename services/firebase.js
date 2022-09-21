@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import  * as firebase from 'firebase/app'
+import {initializeApp} from 'firebase/app'
 import {
   doc,
   updateDoc,
@@ -20,23 +20,25 @@ import { getAnalytics } from 'firebase/analytics'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDxEJyOrx_vEo9bI0DcgUL0ajgZVvKXT-M",
-  authDomain: "mlem-coffe.firebaseapp.com",
-  databaseURL: "https://mlem-coffe-default-rtdb.firebaseio.com",
-  projectId: "mlem-coffe",
-  storageBucket: "mlem-coffe.appspot.com",
-  messagingSenderId: "199865841313",
-  appId: "1:199865841313:web:77423ff8d5b4a38b4fa2e0",
-  measurementId: "G-0WD3HX6G7Z"
-};
-
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  databaseURL: process.env.databaseURL,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.env.measurementId
+}
+console.log('=apiKey: process.env.apiKey 123-4================');
+console.log(process.env.apiKey );
+console.log('====================================');
 // Initialize Firebase
-const app= firebase.initializeApp(firebaseConfig);
+const app= initializeApp(firebaseConfig);
 
 // const app = initializeApp(firebaseConfig)
 export const fireStores = getFirestore(app)
-export const fireStorage = getStorage(app)
-export const fireData = getDatabase(app)
+const fireStorages = getStorage(app)
+// export const fireData = getDatabase(app)
 
 // const dbProduct= collection(fireStores, 'products') User
 const dbProduct = collection(fireStores, 'coffe')
@@ -44,14 +46,13 @@ const dbUser = collection(fireStores, 'users')
 const dbOtherHome = collection(fireStores, 'otherHome')
 const dbDiscount = collection(fireStores, 'discount')
 
-const dbImgProduct = fireStorage(fireStores, 'coffee')
-const dbImgAvatar = fireStorage(fireStores, 'avatar')
-
+const dbImgProduct = 'coffee'
+const dbImgAvatar = 'avatar'
 const functionFire = {
   Product:{
     getAllProduct: async function () {
       const citySnapshot = await getDocs(dbProduct)
-      citySnapshot.docs.map((doc) => {
+      return citySnapshot.docs.map((doc) => {
         const object = {
           id: doc.id,
           data: doc.data(),
