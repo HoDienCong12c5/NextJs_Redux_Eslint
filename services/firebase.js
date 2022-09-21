@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app'
+import  * as firebase from 'firebase/app'
 import {
   doc,
   updateDoc,
@@ -9,7 +9,7 @@ import {
   getDoc,
   deleteDoc,
   addDoc,
-  query,
+  query
 } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { getDatabase, child, get } from 'firebase/database'
@@ -20,18 +20,20 @@ import { getAnalytics } from 'firebase/analytics'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  databaseURL: process.env.databaseURL,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
-  measurementId: process.env.measurementId,
-}
+  apiKey: "AIzaSyDxEJyOrx_vEo9bI0DcgUL0ajgZVvKXT-M",
+  authDomain: "mlem-coffe.firebaseapp.com",
+  databaseURL: "https://mlem-coffe-default-rtdb.firebaseio.com",
+  projectId: "mlem-coffe",
+  storageBucket: "mlem-coffe.appspot.com",
+  messagingSenderId: "199865841313",
+  appId: "1:199865841313:web:77423ff8d5b4a38b4fa2e0",
+  measurementId: "G-0WD3HX6G7Z"
+};
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
+const app= firebase.initializeApp(firebaseConfig);
+
+// const app = initializeApp(firebaseConfig)
 export const fireStores = getFirestore(app)
 export const fireStorage = getStorage(app)
 export const fireData = getDatabase(app)
