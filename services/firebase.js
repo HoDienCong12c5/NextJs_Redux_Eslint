@@ -37,67 +37,119 @@ export const fireStorage = getStorage(app)
 export const fireData = getDatabase(app)
 
 // const dbProduct= collection(fireStores, 'products') User
-const dbProduct = collection(fireStores, 'User')
-
+const dbProduct = collection(fireStores, 'coffe')
 const dbUser = collection(fireStores, 'users')
 const dbOtherHome = collection(fireStores, 'otherHome')
-const functionFire = {
-  getAllProduct: async function () {
-    const citySnapshot = await getDocs(dbProduct)
-    citySnapshot.docs.map((doc) => {
-      const object = {
-        id: doc.id,
-        data: doc.data(),
-      }
-      return object
-    })
-  },
-  getProductById: async function (id) {
-    const temp = doc(fireStores, 'User', id)
-    const data = await getDoc(temp)
-    return data.data()
-  },
-  addProduct: async function (data) {
-    const add = await addDoc(dbProduct, data)
-    if (add) {
-      return true
-    }
-  },
-  updateProduct: async function (id, name, key) {
-    const ob = {}
-    ob[name] = key
-    const temp = await doc(dbProduct, id)
-    await updateDoc(temp, ob)
-  },
-  deleteProduct: async function (id) {
-    await deleteDoc(doc(dbProduct, id))
-  },
-  getPathImg: async function (name) {
-    const path =`images/${name}`
-    return getDownloadURL(ref(fireStorage, `fsdfsdf.png`))
-      .then((url) => {
-        // `url` is the download URL for 'images/stars.jpg'
+const dbDiscount = collection(fireStores, 'discount')
 
-        // This can be downloaded directly:
-        // const xhr = new XMLHttpRequest()
-        // xhr.responseType = 'blob'
-        // xhr.onload = (event) => {
-        //   const blob = xhr.response
-        // }
-        // xhr.open('GET', url)
-        // xhr.send()
-        return url    
+const dbImgProduct = fireStorage(fireStores, 'coffee')
+const dbImgAvatar = fireStorage(fireStores, 'avatar')
+
+const functionFire = {
+  Product:{
+    getAllProduct: async function () {
+      const citySnapshot = await getDocs(dbProduct)
+      citySnapshot.docs.map((doc) => {
+        const object = {
+          id: doc.id,
+          data: doc.data(),
+        }
+        return object
       })
-      .catch((error) => {
-        // Handle any errors
+    },
+    getProductById: async function (id) {
+      const temp = doc(fireStores, 'User', id)
+      const data = await getDoc(temp)
+      return data.data()
+    },
+    addProduct: async function (data) {
+      const add = await addDoc(dbProduct, data)
+      if (add) {
+        return true
+      }
+    },
+    updateProduct: async function (id, name, key) {
+      const ob = {}
+      ob[name] = key
+      const temp = await doc(dbProduct, id)
+      await updateDoc(temp, ob)
+    },
+    deleteProduct: async function (id) {
+      await deleteDoc(doc(dbProduct, id))
+    },
+    getPathImg: async function (name) {
+      const path =`images/${name}`
+      return getDownloadURL(ref(fireStorage, `fsdfsdf.png`))
+        .then((url) => {
+          // `url` is the download URL for 'images/stars.jpg'
+  
+          // This can be downloaded directly:
+          // const xhr = new XMLHttpRequest()
+          // xhr.responseType = 'blob'
+          // xhr.onload = (event) => {
+          //   const blob = xhr.response
+          // }
+          // xhr.open('GET', url)
+          // xhr.send()
+          return url    
+        })
+        .catch((error) => {
+          // Handle any errors
+        })
+    },
+    updateImg: async function (file) {
+      await uploadBytes(dbImgProduct, file).then((snapshot) => {
+        return true
       })
+    },
   },
-  updateImg: async function (file) {
-    const storage = fireStorage
-    const storageRef = ref(storage, 'coffee')
-    await uploadBytes(storageRef, file).then((snapshot) => {
-      return true
-    })
+  User:{
+    getAllProduct: async function () {
+      const citySnapshot = await getDocs(dbUser)
+      citySnapshot.docs.map((doc) => {
+        const object = {
+          id: doc.id,
+          data: doc.data(),
+        }
+        return object
+      })
+    },
+    getProductById: async function (id) {
+      const temp = doc(fireStores, 'User', id)
+      const data = await getDoc(temp)
+      return data.data()
+    },
+    addProduct: async function (data) {
+      const add = await addDoc(dbUser, data)
+      if (add) {
+        return true
+      }
+    },
+    updateProduct: async function (id, name, key) {
+      const ob = {}
+      ob[name] = key
+      const temp = await doc(dbUser, id)
+      await updateDoc(temp, ob)
+    },
+    deleteProduct: async function (id) {
+      await deleteDoc(doc(dbUser, id))
+    },
+    getPathImg: async function (name) {
+      const path =`images/${name}`
+      return getDownloadURL(ref(fireStorage, `fsdfsdf.png`))
+        .then((url) => {
+          return url    
+        })
+        .catch((error) => {
+          // Handle any errors
+        })
+    },
+    updateImg: async function (file) {
+      await uploadBytes(dbImgAvatar, file).then((snapshot) => {
+        return true
+      })
+    },
   },
+  
 }
 export default functionFire
