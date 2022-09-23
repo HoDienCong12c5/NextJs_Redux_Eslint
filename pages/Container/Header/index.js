@@ -60,7 +60,7 @@ const Header = () => {
   }
   useEffect(() => {
     const get =async ()=>{
-      const data=await firebase.Product.getAllProduct()
+      const data=await firebase.FireStore.Product.getAllData()
       console.log({data});
     }
     get()

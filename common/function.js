@@ -71,16 +71,16 @@ export const copyToClipboard = (text, title) => {
 export const ellipsisAddress = (
   address,
   prefixLength = 13,
-  suffixLength = 4
+  suffixLength = 4,
 ) => {
   return `${address.substr(0, prefixLength)}...${address.substr(
     address.length - suffixLength,
-    suffixLength
+    suffixLength,
   )}`
 }
-export const pageNext=(url,as)=>{
+export const pageNext = (url, as) => {
   const router = useRouter()
-  router.push(url,as, { shallow: true })
+  router.push(url, as, { shallow: true })
 }
 
-export default () => {}
+
