@@ -9,46 +9,39 @@ import Media from 'react-media'
 import {Div} from 'components/DivBase'
 import {Button, Title as Name, RoutePage} from 'common/constants'
 import { useRouter } from 'next/router'
-const Item=({src, title, des})=>{
+const Item=({data, des})=>{
  
   return (
     <ItemOther >
       <ImageCustom
-        src={src}
+        src={data?.src}
       />
-      <Title > {title}</Title>
+      <Title > {data?.name}</Title>
       <Details >{des}</Details>
     </ItemOther>
   )
 }
-const onClick=(index)=>{
+const onClick=(id, name)=>{
   const router = useRouter()
-  router.push(`${RoutePage.productDetails.path}`,`${RoutePage.productDetails.as}/?id=${index}`, { shallow: true })
+  router.push(`${RoutePage.productDetails.path}`,`${RoutePage.productDetails.as}/?name=${name}`, { shallow: true })
 }
 
-const OtherItem = () => {
+const OtherItem = ({listData}) => {
   const renderDesktop = ()=>{
     return(
       <ContainerOther>
-        <Item
-          onClick={()=>onClick(0)}
-          src={''}
-          title={Name.product.product1}
-          desc={Button.detail}
-        />
-        <Item
-          onClick={()=>onClick(1)}
-          src={''}
-          title={Name.product.product2}
-          desc={Button.detail}
-        />
-        <Item
-          onClick={()=>onClick(2)}
-
-          src={''}
-          title={Name.product.product3}
-          desc={Button.detail}
-        />
+        {
+          listData?.length >0 && (
+            listData.map(item=>(
+              <Item
+              key={item.id}
+              onClick={()=>onClick(item.id, item.name)}
+              data={item.data}
+              desc={Button.detail}
+            />
+            ))
+          )
+        }
       </ContainerOther>
     )
   }

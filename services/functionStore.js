@@ -18,11 +18,9 @@ const FirebaseFun =(nameData)=>{
         getAllData: async () => {
           const citySnapshot = await getDocs(nameData)
           return citySnapshot.docs.map((doc) => {
-            const object = {
-              id: doc.id,
-              data: doc.data(),
-            }
-            return object
+            let dataTemp=doc.data()
+            dataTemp.id=doc.id 
+            return dataTemp
           })
         },
         getDataByID: async (id) => {

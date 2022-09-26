@@ -170,4 +170,4 @@ export const Color = {
   chocolate:'#d2691e'
 }
 
-export default ()=>messages
+export default messages

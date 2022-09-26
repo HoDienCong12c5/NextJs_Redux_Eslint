@@ -1,4 +1,4 @@
-import {Div} from 'components/DivBase'
+import { Div } from 'components/DivBase'
 import React from 'react'
 import HomeContainer, {
   HomeInfor,
@@ -15,9 +15,38 @@ import HomeContainer, {
 import Img from 'common/images'
 import Media from 'react-media'
 import TypeElement from './Components/TypeElement'
-import {Title, Des} from 'common/constants'
+import OtherItem from './Components/OtherItem'
+import messages, { Title, Des } from 'common/constants'
+import firebase from 'services/firebase'
 const Home = () => {
-  const renderDesktop =()=>{
+  const [dataMain, setDataMain] = useState(null)
+  const [dataOther, setDataOther] = useState([])
+  const [isLoad, setIsLoad] = useState(true)
+  useEffect(() => {
+    const get = async () => {
+      const data = await firebase.FireStore.Product.getAllData()
+      if (data) {
+        for (const key in data) {
+          if (key.type === '1') {
+            setDataMain(key)
+            setIsLoad(false)
+          }
+        }
+      }
+    }
+    const getOther = async () => {
+      const data = await firebase.FireStore.OtherHome.getAllData()
+      if (data) {
+        setDataOther([...dataOther, data])
+      }
+    }
+    Promise.all([
+      get(),
+      getOther()
+    ])
+
+  }, [])
+  const renderDesktop = () => {
     return (
       <HomeContainer>
         <HomeInfor >
@@ -28,37 +57,53 @@ const Home = () => {
             {Des.solugun}
           </Description>
           <PriceBig>
+            {dataMain?.price && dataMain.price} VNĐ
             {'120.000 VNĐ'}
           </PriceBig>
           <BtnBuy fontBold fontSize={20}>
-            Mua ngay
+            {messages.Button.buy}
           </BtnBuy>
         </HomeInfor>
-        <ProductMain >
-          <ImageMain
-            src={Img.home.logo}
-            fullSize
-          />
-        </ProductMain >
-        <Element>
-          <TypeElement
-            icon={Img.home.iconElement}
-            title={Title.element}
-            description={Des.element}
-          />
-          <TypeElement
-            icon={Img.home.iconOrigin}
-            title={Title.origin}
-            description={Des.origin}
-          />
-          <TypeElement
-            icon=''
-            title={Title.flavoring}
-            description={Des.flavoring}
-          />
-        </Element>
+        {
+          !isLoad && (
+            <ProductMain >
+              <ImageMain
+                src={
+                  dataMain.img ? dataMain.img : Img.home.logo
+                }
+                fullSize
+              />
+            </ProductMain >
+          )
+        }
+        {
+          !isLoad && (
+            <Element>
+              <TypeElement
+                icon={Img.home.iconElement}
+                title={Title.element}
+                description={dataMain?.element ?? Des.element}
+              />
+              <TypeElement
+                icon={Img.home.iconOrigin}
+                title={Title.origin}
+                description={dataMain?.origin ?? Des.origin}
+              />
+              <TypeElement
+                icon=''
+                title={Title.flavoring}
+                description={dataMain?.flavoring ?? Des.flavoring}
+              />
+            </Element>
+          )
+        }
+
         <ContainerFooterHome >
-          asdsaf
+          {
+            dataOther?.length > 0 && (
+              <OtherItem listData={dataOther} />
+            )
+          }
         </ContainerFooterHome>
       </HomeContainer>
     )

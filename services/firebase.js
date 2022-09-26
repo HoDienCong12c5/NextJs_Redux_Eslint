@@ -53,7 +53,8 @@ const functionFire = {
     Product:functionStore(dbProduct),
     User:functionStore(dbUser),
     Cart:functionStore(dbCart),
-    Discount :functionStore(dbDiscount)
+    Discount :functionStore(dbDiscount),
+    OtherHome:functionStore(dbOtherHome)
   }
 }
 

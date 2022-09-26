@@ -5,7 +5,7 @@ import MyModal from 'components/MyModal'
 import {NamePage} from 'common/constants'
 import Img from 'common/images'
 import {MediumText} from 'components/Text'
-import firebase from 'services/firebase'
+
 
 const itemMenu=[
   { label: NamePage.home, key: NamePage.home }, // remember to pass the key prop
@@ -58,14 +58,6 @@ const Header = () => {
   const renderMobile=()=>{
 
   }
-  useEffect(() => {
-    const get =async ()=>{
-      const data=await firebase.FireStore.Product.getAllData()
-      console.log({data});
-    }
-    get()
-   
-  }, [])
   
   return (
     <HeaderPage>
