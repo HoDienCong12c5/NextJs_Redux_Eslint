@@ -69,8 +69,9 @@ class BaseContainer extends PureComponent {
     return (
       <Layout>
         <Affix style={{ zIndex: 100 }}offsetTop={0}>
-          <Header />
         </Affix>
+        <Header />
+
         {/* {
           this.checkPageScrollHeader() ? (
             <Header />

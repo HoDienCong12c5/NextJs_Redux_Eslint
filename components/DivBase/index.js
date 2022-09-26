@@ -43,7 +43,7 @@ export const Div = styled.div`
   padding: 0px 100px;
   /* background-color:${Color.grey} ; */
   @media screen and (max-width: 768px) {
-    padding: 0px 50px;
+    padding: 0px 40px;
   }
   @media screen and (max-width: 568px) {
     padding: 0px 20px;

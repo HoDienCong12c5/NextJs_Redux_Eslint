@@ -25,12 +25,11 @@ const Header = () => {
         <div style={{display:'flex', alignItems:'center', gap:15}}>
           <Image src={Img.home.logo}/>
           <NameHost fontWeight>
-            Coffee của bạn
+            Mlem Coffee
           </NameHost>
 
         </div>
         <Left >
-
           <MenuHome
             mode='horizontal'
             onClick={onClick}
@@ -42,7 +41,6 @@ const Header = () => {
                 <MenuHome.Item key={index} icon={<></>}>
                   <div>
                     {item.label}
-
                   </div>
                 </MenuHome.Item >
               ))
@@ -56,7 +54,38 @@ const Header = () => {
     )
   }
   const renderMobile=()=>{
+    return (
+      <ContainerHome>
+        <div style={{display:'flex', alignItems:'center', gap:15}}>
+          <Image src={Img.home.logo}/>
+          <NameHost fontWeight>
+            Mlem Coffee
+          </NameHost>
 
+        </div>
+        <Left >
+          <MenuHome
+            mode='horizontal'
+            onClick={onClick}
+            defaultSelectedKeys={['home']}
+
+          >
+            {
+              itemMenu.map((item, index)=>(
+                <MenuHome.Item key={index} icon={<></>}>
+                  <div>
+                    {item.label}
+                  </div>
+                </MenuHome.Item >
+              ))
+            }
+          </MenuHome>
+        </Left>
+        <Right >
+
+        </Right>
+      </ContainerHome>
+    )
   }
   
   return (

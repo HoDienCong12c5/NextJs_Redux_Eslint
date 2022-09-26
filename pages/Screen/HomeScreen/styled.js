@@ -7,11 +7,10 @@ import { Color } from 'common/constants'
 const HomeContainer = styled(DivRow)`
   flex-flow: row wrap;
   justify-content: space-between;
-  /* gap:30px; */
   margin-top: 100px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     padding-left: 0px;
-    flex-flow: column wrap;
+    flex-flow: column wrap !important;
     gap: 30px;
   }
 `
@@ -20,8 +19,10 @@ export const HomeInfor = styled(DivRow)`
   flex-flow: column wrap;
   gap: 20px;
   padding-right: 10px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     padding-right: 0px;
+    width: 100%;
+    max-width: 100%;
   }
 `
 export const TitleInfor = styled(TitleText)`
@@ -34,8 +35,10 @@ export const Description = styled(MediumText)`
 export const ProductMain = styled.div`
   width: 40%;
   padding: 10px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     padding: 0px;
+    width: unset;
+    max-width:100%;
   }
 `
 
@@ -45,9 +48,10 @@ export const Element = styled(DivRow)`
   align-items: flex-start;
   gap: 30px;
   padding-left: 10px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     padding-left: 0px;
     padding-top: 0px;
+    max-width: 100% !important;
   }
 `
 export const TitleSub = styled(MediumText)``
