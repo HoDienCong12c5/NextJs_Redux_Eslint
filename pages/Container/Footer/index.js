@@ -16,7 +16,7 @@ const Footer = () => {
 
         </About>
         <Des >
-          <Image src={''} height={35} width={35}/>
+          {/* <Image src={''} height={35} width={35}/> */}
         </Des>
       </Left>
       <Right>

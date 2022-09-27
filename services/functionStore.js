@@ -13,7 +13,7 @@ import {
   import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
   import { getDatabase, child, get } from 'firebase/database'
   import { getAnalytics } from 'firebase/analytics'
-const FirebaseFun = (nameData)=>{
+const FirebaseFun = (nameData, path='')=>{
     return {
         getAllData: async () => {
           const citySnapshot = await getDocs(nameData)
@@ -44,13 +44,14 @@ const FirebaseFun = (nameData)=>{
           await deleteDoc(doc(nameData, id))
         },
         upLoadImg: async function (file) {
-          await uploadBytes(nameData, file).then((snapshot) => {
+          const pathImg = `/${path}`
+          await uploadBytes(pathImg, file).then((snapshot) => {
             return true
           })
         },
-        getPathImg: async function ( path,name) {
-          path = `${path}/${name}`
-          return getDownloadURL(ref(nameData, path))
+        getPathImg: async function (name) {
+         const pathImg = `/${path}/${name}`
+          return getDownloadURL(ref(nameData, pathImg))
             .then((url) => {
               return url
             })

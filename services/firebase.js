@@ -48,6 +48,7 @@ const dbDiscount = collection(fireStores, 'discount')
 
 const dbImgProduct = 'coffee'
 const dbImgAvatar = 'avatar'
+const dbImgOtherHome ='OtherBanner'
 const functionFire = {
   FireStore:{
     Product:functionStore(dbProduct),
@@ -55,7 +56,13 @@ const functionFire = {
     Cart:functionStore(dbCart),
     Discount :functionStore(dbDiscount),
     OtherHome:functionStore(dbOtherHome)
+  },
+
+  FireStorages:{
+    otherHome:functionStore(fireStorages,dbImgOtherHome),
+    avatar:functionStore(fireStorages,dbImgAvatar)
   }
+
 }
 
 export default functionFire

@@ -42,7 +42,11 @@ const Home = () => {
         setDataOther([...dataOther, data]);
       }
     };
-    Promise.all([get(), getOther()]);
+    const getImgOther= async() =>{
+      const req=await firebase.FireStorages.otherHome.getPathImg('avataThuy.png')
+      console.log({req})
+    }
+    Promise.all([get(), getOther(),getImgOther()]);
   }, []);
   const renderDesktop = () => {
     return (
@@ -79,7 +83,7 @@ const Home = () => {
               description={dataMain?.origin ?? Des.origin}
             />
             <TypeElement
-              icon=""
+              icon={Img.home.iconSmell}
               title={Title.flavoring}
               description={dataMain?.flavoring ?? Des.flavoring}
             />
@@ -121,16 +125,17 @@ const Home = () => {
               title={Title.element}
               description={dataMain?.element ?? Des.element}
             />
+             <TypeElement
+              icon={Img.home.iconSmell}
+              title={Title.flavoring}
+              description={dataMain?.flavoring ?? Des.flavoring}
+            />
             <TypeElement
               icon={Img.home.iconOrigin}
               title={Title.origin}
               description={dataMain?.origin ?? Des.origin}
             />
-            <TypeElement
-              icon={Img.home.iconSmell}
-              title={Title.flavoring}
-              description={dataMain?.flavoring ?? Des.flavoring}
-            />
+           
           </Element>
         )}
 

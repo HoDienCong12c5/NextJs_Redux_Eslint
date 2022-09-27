@@ -95,6 +95,7 @@ class BaseContainer extends PureComponent {
             </Row>
           </Content>
         </Layout>
+        <Footer />
         {/* 
         {
           PAGE_SHOW_SCROLL_TOP.includes(Router.pathname) &&
