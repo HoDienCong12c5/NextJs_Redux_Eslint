@@ -13,13 +13,13 @@ import {
   import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
   import { getDatabase, child, get } from 'firebase/database'
   import { getAnalytics } from 'firebase/analytics'
-const FirebaseFun =(nameData)=>{
+const FirebaseFun = (nameData)=>{
     return {
         getAllData: async () => {
           const citySnapshot = await getDocs(nameData)
           return citySnapshot.docs.map((doc) => {
             let dataTemp=doc.data()
-            dataTemp.id=doc.id 
+            dataTemp.id=doc.id  
             return dataTemp
           })
         },

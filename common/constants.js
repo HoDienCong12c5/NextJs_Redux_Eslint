@@ -12,6 +12,8 @@ const messages={
     myCart:'Giỏ hàng'
   },
   Button : {
+    more:'Xem thêm',
+    details:'Chi tiết',
     buy: 'Mua ngay',
     cancel: 'Thoát',
     contact: 'Liên hệ',

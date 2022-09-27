@@ -5,12 +5,11 @@ import { NextSeo } from 'next-seo';
 export default function Home (props) {
   return (
     <div className={styles.container}>
-       <NextSeo
-      title="Mlem Coffee"
-      description="Cung cấp cà phê tốt nhất cho bạn."
-    />
-    <p>Simple Usage</p>
-      <HomePage />
+      <NextSeo
+        title="Mlem Coffee"
+        description="Cung cấp cà phê tốt nhất cho bạn."
+      />
+      <HomePage /> 
     </div>
   )
 }
