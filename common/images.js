@@ -8,7 +8,14 @@ const Img={
   footer:{
     iconAddress: require('public/Assets/Image/Footer/iconAddress.png'),
     iconGmail: require('public/Assets/Image/Footer/iconGmail.png'),
-    iconNumberPhone: require('public/Assets/Image/Footer/iconNumberPhone.png')
+    iconNumberPhone: require('public/Assets/Image/Footer/iconNumberPhone.png'),
+    iconGithub: require('public/Assets/Image/Footer/iconGithub.png'),
+    iconLinkedin: require('public/Assets/Image/Footer/iconLinkedin.png'),
+    iconFace: require('public/Assets/Image/Footer/iconFace.png'),
+    iconYoutube: require('public/Assets/Image/Footer/iconYoutobe.png'),
+    iconIntagram: require('public/Assets/Image/Footer/iconIntagram.png'),
+    iconTitok: require('public/Assets/Image/Footer/iconTiktok.png'),
+    iconZalo : require('public/Assets/Image/Footer/iconZalo.png')
   }
 }
 export default Img
