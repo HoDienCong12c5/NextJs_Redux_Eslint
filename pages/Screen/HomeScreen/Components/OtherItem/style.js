@@ -12,9 +12,12 @@ const ContainerOther = styled.div`
   }
 `
 export const ItemOther = styled.div`
-  display: flex;
-  flex-flow: column wrap;
+  /* display: flex;
+  flex-flow: column wrap !important; */
+  text-align: center;
   gap: 10px;
+  width:30%;
+
 `
 export const ImageCustom = styled(Image)`
   border-radius: 50%;

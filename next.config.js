@@ -5,7 +5,12 @@ const { useBabelRc, override } = require('customize-cra')
 const path = require('path')
 const withTM = require('next-transpile-modules')(['three'])
 const nextConfig = {
+  images: {
+    domains: ['firebasestorage.googleapis.com'],
+},
   webpack (config) {
+  
+      
     // Returns environment variables as an object
     const env = Object.keys(process.env).reduce((acc, curr) => {
       acc[`process.env.${curr}`] = JSON.stringify(process.env[curr])
@@ -68,6 +73,19 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
 }
-
-
+module.exports = {
+  images: {
+    domains: ['firebasestorage.googleapis.com']
+  }
+}
+// const nextjsDistDir = join("src", require("./src/next.config.js").distDir);
+// const nextjsServer = next({
+//   dev: isDev,
+//   conf: {
+//     distDir: nextjsDistDir,
+//     images: {
+//       domains: ['firebasestorage.googleapis.com'],
+//     }
+//   }
+// });
 module.exports = nextConfig

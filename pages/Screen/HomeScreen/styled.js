@@ -82,9 +82,12 @@ export const ContainerFooterHome = styled.div`
   width: 90%;
   height: 300px;
   padding: 10px ;
-border-radius: 30px 30px 0px 0px;
+  border-radius: 30px ;
   margin :0 auto;
   margin-top: 100px;
+  @media screen and (max-width: 1300px) {
+    width: 100%;
+  }
   @media screen and (max-width: 768px) {
     flex-flow: column wrap;
   }

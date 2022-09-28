@@ -6,13 +6,15 @@ import App from 'next/app'
 import React from 'react'
 import BaseContainer from 'pages/Container'
 import images from 'common/images'
-import { NextSeo } from 'next-seo';
+import { NextSeo, DefaultSeo  } from 'next-seo';
+import Seo from './seoConfig'
 class XCreation extends App {
   render () {
     const { Component, pageProps } = this.props
     return (
       <Provider store={store}>
         <BaseContainer >
+        <DefaultSeo {...Seo}/>
           <NextSeo
             title="Mlem Coffee"
             titleTemplate="Mlem Coffee"
@@ -50,5 +52,7 @@ class XCreation extends App {
     )
   }
 }
-
+XCreation.getInitialProps = async ({ query }) => {
+  return { }
+}
 export default XCreation

@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'components/Image'
 import messages from 'common/constants'
 import Media from 'react-media'
-import Container, {
+import ContainerFooter, {
   Left,
   Right,
   About,
@@ -51,7 +51,7 @@ const Footer = () => {
         {
           lisIcon.map(item => (
             <Des key={item.icon} isHover>
-              <a href={item.link}>
+              <a href={item.link} target="_blank">
                 <Image src={item.icon} height={30} width={30} />
 
               </a>
@@ -82,8 +82,16 @@ const Footer = () => {
      
     </AboutDetails>
   )
-  return (
-    <Container className={'padding'} >
+  const renderMobile = () =>{
+   return (
+    <div className={'padding'} >
+      <GGMap/>
+      </div>
+    )
+  }
+  const renderDesktop = () => {
+    return (
+      <ContainerFooter className={'padding'} >
       <Left >
         <About > {messages.Title.aboutContact}  </About>
         {renderAboutDetails()}
@@ -95,7 +103,18 @@ const Footer = () => {
       <Right>
         <GGMap/>
       </Right>
-    </Container>
+    </ContainerFooter>
+    )
+  }
+  return (
+    <Media query='(min-width: 768px)'>
+    {(match) => {
+      if (match) {
+        return renderDesktop()
+      }
+      return renderMobile()
+    }}
+  </Media>
   )
 }
 export default Footer

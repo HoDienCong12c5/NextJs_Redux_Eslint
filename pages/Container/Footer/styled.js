@@ -1,57 +1,63 @@
-import styled from 'styled-components'
-import NormalText, {MediumText,TitleText} from 'components/Text'
-const Container =styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    @media screen and  (min-width: 768px){
-        flex-flow: column wrap;
-    }
-    margin: 15px 0px;
-`
+import styled from "styled-components";
+import NormalText, { MediumText, TitleText } from "components/Text";
+const ContainerFooter = styled.div`
+  margin-top: 50px !important;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    flex-flow: column wrap;
+  }
+  margin: 15px 0px;
+`;
 
 export const Left = styled.div`
-
-`
+  max-width: 50%;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
 export const About = styled(TitleText)`
-    white-space: nowrap;
-    font-size:32px;
-    @media screen and (min-width: 768px){
-        font-size:24px;
-    }
-`
+  white-space: nowrap;
+  font-size: 32px;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+`;
 export const AboutDetails = styled.div`
-    display: flex;
-    flex-flow: column wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-`
+  display: flex;
+  flex-flow: column wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+`;
 export const Des = styled(MediumText)`
-    white-space: nowrap;
-    cursor: ${props=>props.isHover &&'pointer'};
-`
+  white-space: nowrap;
+  cursor: ${(props) => props.isHover && "pointer"};
+`;
 export const DesAbout = styled(MediumText)`
-    white-space: nowrap;
-    cursor:pointer;
-    display: flex;
-    flex-direction: row wrap;
-    gap:5px;
-    max-width: 500px;
-    align-items: end;
-    font-weight: 500;
-`
+  white-space: nowrap;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row wrap;
+  gap: 5px;
+  max-width: 500px;
+  align-items: end;
+  font-weight: 500;
+`;
 export const Right = styled.div`
-`
+  max-width: 48%;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
 export const ContainerMoreLink = styled.div`
-    
-    display: flex;
-    flex-flow: row;
-    gap:15px;
-
-`
-export const ListSocial =styled.div`
-    display: flex;
-    flex-direction: row;
-    gap:15px;
-
-`
-export default Container
+  display: flex;
+  flex-flow: row;
+  gap: 15px;
+`;
+export const ListSocial = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+`;
+export default ContainerFooter;

@@ -1,57 +1,56 @@
 import React, { useEffect, useState, useRef } from "react";
-import GoogleMapReact from 'google-map-react';
-import styled from 'styled-components'
+import GoogleMapReact from "google-map-react";
+import styled from "styled-components";
 const Container = styled.div`
-height: 100%;
-min-width: 500px;
-min-height: 500px;
+  height: 100%;
+  min-width: 600px;
+  min-height: 300px;
+  width: 100%;
+  max-width: 600px;
+`;
+const AnyReactComponent = ({ text }) => (
+  <div style={{ background: "red", padding: 10, borderRadius: 10 }}>{text}</div>
+);
 
-width: 100%;
-`
-const AnyReactComponent = ({ text }) =>
-  <div style={{ background: 'red', padding: 10, borderRadius: 10 }}>
-    {text}
-  </div>
-
-export default function GGMap () {
+export default function GGMap() {
   const dataRef = useRef({
     lat: 10.826240950784769,
     lng: 106.64148818650716,
     lat1: 10.526240950784769,
-    lng2: 106.34148818650716
-  })
-  const [data, setData] = useState('')
+    lng2: 106.34148818650716,
+  });
+  const [data, setData] = useState("");
   useEffect(() => {
-    setData(dataRef.current)
-  }, [])
+    setData(dataRef.current);
+  }, []);
   const defaultProps = {
     center: {
       lat: dataRef.current.lat1,
-      lng: dataRef.current.lng2
+      lng: dataRef.current.lng2,
     },
-    zoom: 15
+    zoom: 15,
   };
   const onClick = (key, childProps) => {
-    console.log('====================================');
+    console.log("====================================");
     console.log({ key });
     console.log({ childProps });
     console.log({ data });
-    console.log('====================================');
-    dataRef.current.lat1 = dataRef.current.lat
-    setData(dataRef.current)
-  }
+    console.log("====================================");
+    dataRef.current.lat1 = dataRef.current.lat;
+    setData(dataRef.current);
+  };
 
   return (
     // Important! Always set the container height explicitly
-    <Container >
+    <Container>
       <GoogleMapReact
         onChildClick={onClick}
-        onBoundsChange={onClick}
+        // onBoundsChange={onClick}
         onChangeHandler={onClick}
         bootstrapURLKeys={{ key: "" }}
         defaultCenter={{
           lat: data.lat,
-          lng: data.lng
+          lng: data.lng,
         }}
         defaultZoom={defaultProps.zoom}
       >

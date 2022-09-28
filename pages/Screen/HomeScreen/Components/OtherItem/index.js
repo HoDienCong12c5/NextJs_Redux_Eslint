@@ -15,8 +15,11 @@ const Item=({data, des})=>{
     <ItemOther >
       <ImageCustom
         src={data?.src}
+        width={'100%'}
+        height={'90%'}
+        // fullSize={'width: 500px'}
       />
-      <Title > {data?.name}</Title>
+      <Title > Loại: {data?.type}</Title>
       <Details >{des}</Details>
     </ItemOther>
   )
@@ -27,6 +30,7 @@ const onClick=(id, name)=>{
 }
 
 const OtherItem = ({listData}) => {
+  console.log({listData});
   const renderDesktop = ()=>{
     return(
       <ContainerOther>
@@ -36,7 +40,7 @@ const OtherItem = ({listData}) => {
               <Item
               key={item.id}
               onClick={()=>onClick(item.id, item.name)}
-              data={item.data}
+              data={item}
               desc={Button.detail}
             />
             ))

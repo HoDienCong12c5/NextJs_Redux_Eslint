@@ -38,8 +38,10 @@ const Home = () => {
     const getOther = async () => {
       const data = await firebase.FireStore.OtherHome.getAllData();
       if (data?.length >0) {
-
-        setDataOther([...dataOther, data]);
+        console.log('====================================');
+        console.log({data});
+        console.log('====================================');
+        setDataOther(data);
       }
     };
     const getImgOther= async() =>{
@@ -67,6 +69,7 @@ const Home = () => {
             <ImageMain
               src={dataMain?.img ? dataMain?.img : Img.home.logo}
               fullSize
+
             />
           </ProductMain>
         )}
