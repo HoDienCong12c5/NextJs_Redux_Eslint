@@ -25,7 +25,7 @@ export const HomeInfor = styled(DivRow)`
     max-width: 100%;
   }
 `
-export const TitleInfor = styled(TitleText)`
+export const TitleInfor = styled.h1`
   font-size: 42px;
   text-align: center;
 `

@@ -88,7 +88,7 @@ class BaseContainer extends PureComponent {
             <Row type='flex' justify='center'>
               <Col span={24}>
                 <div className='base-container'>
-                  {this.props.children}
+                  {/* {this.props.children} */}
 
                 </div>
               </Col>

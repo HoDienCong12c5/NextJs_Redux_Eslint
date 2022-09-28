@@ -23,6 +23,9 @@ const messages={
     detail:'Chi tiết'
   },
   Title : {
+    address:'Địa chỉ',
+    numberPhone:'SDT',
+    aboutContact:'Thông tin liên hệ',
     product:{
       product1:'Loại 1',
       product2:'Loại 2',
