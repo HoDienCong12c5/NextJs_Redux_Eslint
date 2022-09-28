@@ -38,9 +38,6 @@ const Home = () => {
     const getOther = async () => {
       const data = await firebase.FireStore.OtherHome.getAllData();
       if (data?.length >0) {
-        console.log('====================================');
-        console.log({data});
-        console.log('====================================');
         setDataOther(data);
       }
     };

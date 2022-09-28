@@ -3,10 +3,12 @@ import ContainerOther, {
   ImageCustom,
   Title,
   Details,
-  ItemOther
+  ItemOther,
+  BtnMore
 } from './style'
 import Media from 'react-media'
-import {Div} from 'components/DivBase'
+import messages from "common/constants";
+
 import {Button, Title as Name, RoutePage} from 'common/constants'
 import { useRouter } from 'next/router'
 const Item=({data, des})=>{
@@ -15,12 +17,12 @@ const Item=({data, des})=>{
     <ItemOther >
       <ImageCustom
         src={data?.src}
-        width={'100%'}
-        height={'90%'}
+        width={'90%'}
+        height={'80%'}
         // fullSize={'width: 500px'}
       />
       <Title > Loại: {data?.type}</Title>
-      <Details >{des}</Details>
+      <BtnMore >{messages.Button.buy}</BtnMore>
     </ItemOther>
   )
 }
@@ -57,16 +59,14 @@ const OtherItem = ({listData}) => {
     )
   }
   return (
-    <Div>
-      <Media query='(min-width:768px)'>
-        {(match) => {
-          if (match) {
-            return renderDesktop()
-          }
-          return renderMobile()
-        }}
-      </Media>
-    </Div>
+    <Media query='(min-width:768px)'>
+    {(match) => {
+      if (match) {
+        return renderDesktop()
+      }
+      return renderMobile()
+    }}
+  </Media>
 
   )
 }

@@ -76,12 +76,13 @@ export const BtnBuy = styled(ButtonBasic)`
   border-radius: 25px;
 `
 export const ContainerFooterHome = styled.div`
+  justify-content:center;
   display: flex;
   flex-flow: row wrap;
   background: ${Color.chocolate};
   width: 90%;
-  height: 300px;
-  padding: 10px ;
+  min-height: 300px;
+  padding: 20px ;
   border-radius: 30px ;
   margin :0 auto;
   margin-top: 100px;
