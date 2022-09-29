@@ -85,7 +85,7 @@ const Footer = () => {
   const renderMobile = () =>{
    return (
     <div className={'padding'} >
-      <GGMap/>
+      {/* <GGMap/> */}
       </div>
     )
   }
