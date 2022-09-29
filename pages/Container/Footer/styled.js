@@ -33,6 +33,11 @@ export const AboutDetails = styled.div`
 export const Des = styled(MediumText)`
   white-space: nowrap;
   cursor: ${(props) => props.isHover && "pointer"};
+  &.hasHover{
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
 `;
 export const DesAbout = styled(MediumText)`
   white-space: nowrap;
@@ -43,6 +48,9 @@ export const DesAbout = styled(MediumText)`
   max-width: 500px;
   align-items: end;
   font-weight: 500;
+  &:hover{
+      transform: scale(1.05);
+    }
 `;
 export const Right = styled.div`
   max-width: 48%;

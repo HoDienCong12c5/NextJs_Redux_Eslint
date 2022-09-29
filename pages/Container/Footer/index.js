@@ -50,7 +50,7 @@ const Footer = () => {
       <ContainerMoreLink >
         {
           lisIcon.map(item => (
-            <Des key={item.icon} isHover>
+            <Des className='hasHover' key={item.icon} isHover>
               <a href={item.link} target="_blank">
                 <Image src={item.icon} height={30} width={30} />
 
@@ -94,6 +94,7 @@ const Footer = () => {
       <ContainerFooter className={'padding'} >
       <Left >
         <About > {messages.Title.aboutContact}  </About>
+        <br/>
         {renderAboutDetails()}
         {renderMoreLink()}
         <Des >
@@ -112,7 +113,7 @@ const Footer = () => {
       if (match) {
         return renderDesktop()
       }
-      return renderMobile()
+      return renderDesktop()
     }}
   </Media>
   )

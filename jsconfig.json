@@ -11,5 +11,5 @@
       "public":["./public/*"]
     }
   },
-  "include": ["**/*.js"]
+  "include": ["**/*.js", "components/Loading/index.jxs"]
 }

@@ -37,7 +37,7 @@ export const ProductMain = styled.div`
   padding: 10px;
   @media screen and (max-width: 900px) {
     padding: 0px;
-    width: unset;
+
     max-width:100%;
   }
 `
@@ -52,6 +52,7 @@ export const Element = styled(DivRow)`
     padding-left: 0px;
     padding-top: 0px;
     max-width: 100% !important;
+    width:60%;
   }
 `
 export const TitleSub = styled(MediumText)``
@@ -86,6 +87,8 @@ export const ContainerFooterHome = styled.div`
   border-radius: 30px ;
   margin :0 auto;
   margin-top: 100px;
+  justify-content: center;
+    flex-direction: row;
   @media screen and (max-width: 1300px) {
     width: 100%;
   }

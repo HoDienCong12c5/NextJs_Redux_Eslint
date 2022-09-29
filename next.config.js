@@ -1,21 +1,19 @@
 /** @type {import('next').NextConfig} */
-require('dotenv').config()
-const webpack = require('webpack')
-const { useBabelRc, override } = require('customize-cra')
-const path = require('path')
-const withTM = require('next-transpile-modules')(['three'])
+require("dotenv").config();
+const webpack = require("webpack");
+const { useBabelRc, override } = require("customize-cra");
+const path = require("path");
+const withTM = require("next-transpile-modules")(["three"]);
 const nextConfig = {
   images: {
-    domains: ['firebasestorage.googleapis.com'],
-},
-  webpack (config) {
-  
-      
+    domains: ["firebasestorage.googleapis.com"],
+  },
+  webpack(config) {
     // Returns environment variables as an object
     const env = Object.keys(process.env).reduce((acc, curr) => {
-      acc[`process.env.${curr}`] = JSON.stringify(process.env[curr])
-      return acc
-    }, {})
+      acc[`process.env.${curr}`] = JSON.stringify(process.env[curr]);
+      return acc;
+    }, {});
 
     // Fixes npm packages that depend on `fs` module
     // config.node = {
@@ -29,55 +27,52 @@ const nextConfig = {
      */
     config.module.rules.push({
       test: /\.(ogg|mp3|wav|mpe?g)$/i,
-      loader: 'file-loader',
+      loader: "file-loader",
       options: {
-        name: '[path][name].[ext]'
-      }
-    })
-    config.plugins.push(new webpack.DefinePlugin(env))
+        name: "[path][name].[ext]",
+      },
+    });
+    config.plugins.push(new webpack.DefinePlugin(env));
 
-    return config
+    return config;
   },
   env: {
-    GREETING: 'Hello World',
-  }
-
-}
-module.exports = override(
-  useBabelRc()
-)
+    GREETING: "Hello World",
+  },
+};
+module.exports = override(useBabelRc());
 
 module.exports = withTM({
-  webpack (config, options) {
+  webpack(config, options) {
     config.module.rules.push({
       test: /\.(glb|gltf|fbx|glsl|vs|fs|vert|frag|OBJ|COLLADA)$/,
       use: {
-        loader: 'file-loader'
-      }
-    })
-  }
-})
+        loader: "file-loader",
+      },
+    });
+  },
+});
 module.exports = {
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) {
     return {
-      '/': { page: '/' },
-      '/profile': { page: 'Screen/ProfileScreen' }
-    }
-  }
-}
+      "/": { page: "/" },
+      "/profile": { page: "Screen/ProfileScreen" },
+    };
+  },
+};
 module.exports = {
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, "styles")],
   },
-}
+};
 module.exports = {
   images: {
-    domains: ['firebasestorage.googleapis.com']
-  }
-}
+    domains: ["firebasestorage.googleapis.com"],
+  },
+};
 // const nextjsDistDir = join("src", require("./src/next.config.js").distDir);
 // const nextjsServer = next({
 //   dev: isDev,
@@ -88,4 +83,4 @@ module.exports = {
 //     }
 //   }
 // });
-module.exports = nextConfig
+module.exports = nextConfig;

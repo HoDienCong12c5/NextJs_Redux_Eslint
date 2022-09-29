@@ -33,7 +33,7 @@ const Icon = styled.img`
 const ButtonBasic = ({
   onClick,
   icon,
-  title = 'ButtonBasic',
+  title = '',
   className = '',
   style = {},
   isLoading = false,

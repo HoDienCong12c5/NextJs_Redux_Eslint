@@ -143,16 +143,16 @@ export const RoutePage = {
     as:'/about/'
   },
   productDetails:{
-    path:'/Screen/ProductDetail/',
+    path:'/Screen/ProductDetail',
     as:'/product-detail/'
   },
   contact:{
     path:'/Screen/Contact',
-    as:'/contact/'
+    as:'/contact'
   },
   myCart:{
     path:'/Screen/MyCart',
-    as:'/my-cart/'
+    as:'/my-cart'
   },
   CvCEO:{
     path:'/Screen/CvCEO',

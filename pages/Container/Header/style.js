@@ -19,16 +19,19 @@ export const ContainerHome = styled(MediumText)`
   padding: 10px 0px;
 `
 export const Right = styled(MediumText)`
-
+  width:100px;
 `
 export const Image = styled(ImageBase)`
   border-radius: 25px;
 `
 export const NameHost = styled(MediumText)`
   font-style: italic ;
+  min-width: 100px;
 `
 export const Left = styled.div`
-
+display: flex;
+flex-direction: row wrap;
+width: 80%;
 `
 export const ButtonMore = styled(ButtonBasic)`
 
@@ -37,8 +40,8 @@ export const MenuHome = styled(Menu)`
   padding: 0px;
   gap:30px;
   display:flex ;
-  position: relative ;
-  right: 90px;
+  /* position: relative ; */
+  margin-left:30px !important ;
   .ant-menu-item-selected {
     &::after {
       border: none !important;

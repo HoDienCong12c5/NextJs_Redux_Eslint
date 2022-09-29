@@ -4,12 +4,12 @@ import { NextSeo, DefaultSeo } from 'next-seo';
 const HeadSeo = () => {
   return (
     <Head >
-      <title>Mlem Coffee</title>
+      {/* <title>Mlem Coffee</title>
       <meta charSet='utf-8' />
       <meta name="description" content={'Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai.'} />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       <meta property="og:title" content={"Mlem Coffee"} key="ogtitle" />
-      <meta property="og:description" content={'Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai.'} key="ogdec" />
+      <meta property="og:description" content={'Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai.'} key="ogdec" /> */}
       <NextSeo
         title="Mlem Coffee"
         titleTemplate="Mlem Coffee"
@@ -41,5 +41,7 @@ const HeadSeo = () => {
     </Head>
   )
 }
-
+HeadSeo.getInitialProps = async ({ query }) => {
+  return {}
+}
 export default HeadSeo

@@ -18,6 +18,7 @@ import TypeElement from "./Components/TypeElement";
 import OtherItem from "./Components/OtherItem";
 import messages, { Title, Des } from "common/constants";
 import firebase from "services/firebase";
+import Loading from "components/Loading";
 const Home = () => {
   const [dataMain, setDataMain] = useState(null);
   const [dataOther, setDataOther] = useState([]);
@@ -25,45 +26,42 @@ const Home = () => {
   useEffect(() => {
     const get = async () => {
       const data = await firebase.FireStore.Product.getAllData();
-      if (data?.length >0) {
-        const tempData= data.find(item=>item.type==="1")
-        setDataMain(tempData); 
+      if (data?.length > 0) {
+        const tempData = data.find((item) => item.type === "1");
+        setDataMain(tempData);
       }
     };
     const getOther = async () => {
       const data = await firebase.FireStore.OtherHome.getAllData();
-      if (data?.length >0) {
+      if (data?.length > 0) {
         setDataOther(data);
       }
     };
     Promise.all([get(), getOther()]);
   }, []);
-  const onPageExternal =(url)=>{
-
-  }
+  const onPageExternal = (url) => {};
   const renderDesktop = () => {
     return (
       <HomeContainer>
         <HomeInfor>
           <TitleInfor>{Title.solugun}</TitleInfor>
           <Description>{Des.solugun}</Description>
-          <PriceBig>
-            {dataMain?.price || "120.000 VNĐ"} VNĐ
-          </PriceBig>
-          <BtnBuy onClick={()=>onPageExternal()} fontBold fontSize={20}>
+          <PriceBig>{dataMain?.price || "120.000 VNĐ"} VNĐ</PriceBig>
+          <BtnBuy onClick={() => onPageExternal()} fontBold fontSize={20}>
             {messages.Button.buy}
           </BtnBuy>
         </HomeInfor>
-        {dataMain && (
+        {dataMain ? (
           <ProductMain>
             <ImageMain
-              src={dataMain?.img ? dataMain?.img : Img.home.logo}
+              src={dataMain?.image ? dataMain?.image : Img.home.logo}
               fullSize
-
             />
           </ProductMain>
+        ) : (
+          <Loading />
         )}
-        {dataMain && (
+        {dataMain ? (
           <Element>
             <TypeElement
               icon={Img.home.iconElement}
@@ -81,10 +79,15 @@ const Home = () => {
               description={dataMain?.flavoring ?? Des.flavoring}
             />
           </Element>
+        ) : (
+          <Loading />
         )}
-
         <ContainerFooterHome>
-          {dataOther?.length > 0 && <OtherItem listData={dataOther} />}
+          {dataOther?.length > 0 ? (
+            <OtherItem listData={dataOther} />
+          ) : (
+            <Loading />
+          )}
         </ContainerFooterHome>
       </HomeContainer>
     );
@@ -95,44 +98,49 @@ const Home = () => {
         <HomeInfor>
           <TitleInfor>{Title.solugun}</TitleInfor>
           <Description>{Des.solugun}</Description>
-          <PriceBig>
-            {dataMain?.price || "120.000 VNĐ"} VNĐ
-          </PriceBig>
+          <PriceBig>{dataMain?.price || "120.000 VNĐ"} VNĐ</PriceBig>
           <BtnBuy fontBold fontSize={20}>
             {messages.Button.buy}
           </BtnBuy>
         </HomeInfor>
-        {!isLoad && (
+        {dataMain ? (
           <ProductMain>
             <ImageMain
-              src={dataMain?.img ? dataMain?.img : Img.home.logo}
+              src={dataMain?.image ? dataMain?.image : Img.home.logo}
               fullSize
             />
           </ProductMain>
+        ) : (
+          <Loading />
         )}
-        {!isLoad && (
+        {dataMain ? (
           <Element>
             <TypeElement
               icon={Img.home.iconElement}
               title={Title.element}
               description={dataMain?.element ?? Des.element}
             />
-             <TypeElement
-              icon={Img.home.iconSmell}
-              title={Title.flavoring}
-              description={dataMain?.flavoring ?? Des.flavoring}
-            />
             <TypeElement
               icon={Img.home.iconOrigin}
               title={Title.origin}
               description={dataMain?.origin ?? Des.origin}
             />
-           
+            <TypeElement
+              icon={Img.home.iconSmell}
+              title={Title.flavoring}
+              description={dataMain?.flavoring ?? Des.flavoring}
+            />
           </Element>
+        ) : (
+          <Loading />
         )}
 
         <ContainerFooterHome>
-          {dataOther?.length > 0 && <OtherItem listData={dataOther} />}
+        {dataOther?.length > 0 ? (
+            <OtherItem listData={dataOther} />
+          ) : (
+            <Loading />
+          )}
         </ContainerFooterHome>
       </HomeContainer>
     );
@@ -145,7 +153,7 @@ const Home = () => {
           if (match) {
             return renderDesktop();
           }
-          return renderMobile()
+          return renderMobile();
         }}
       </Media>
     </Div>

@@ -11,28 +11,30 @@ import messages from "common/constants";
 
 import {Button, Title as Name, RoutePage} from 'common/constants'
 import { useRouter } from 'next/router'
-const Item=({data, des})=>{
- 
+const Item=({data, onClick})=>{
+
   return (
     <ItemOther >
       <ImageCustom
         src={data?.src}
         width={'90%'}
-        height={'80%'}
+        height={'auto'}
         // fullSize={'width: 500px'}
       />
       <Title > Loại: {data?.type}</Title>
-      <BtnMore >{messages.Button.buy}</BtnMore>
+      <BtnMore onClick={onClick} title={messages.Button.buy}/>
     </ItemOther>
   )
 }
-const onClick=(id, name)=>{
-  const router = useRouter()
-  router.push(`${RoutePage.productDetails.path}`,`${RoutePage.productDetails.as}/?name=${name}`, { shallow: true })
-}
 
 const OtherItem = ({listData}) => {
-  console.log({listData});
+  const router = useRouter()
+  const onClick=(id)=>{
+    router.push('/Screen/Home')
+
+    // router.push(`${RoutePage.home.path}`,`${RoutePage.productDetails.as}/?id=${id}`, { shallow: true })
+  }
+  
   const renderDesktop = ()=>{
     return(
       <ContainerOther>
@@ -41,7 +43,7 @@ const OtherItem = ({listData}) => {
             listData.map(item=>(
               <Item
               key={item.id}
-              onClick={()=>onClick(item.id, item.name)}
+              onClick={()=>onClick(item.IDProduct)}
               data={item}
               desc={Button.detail}
             />
@@ -64,7 +66,7 @@ const OtherItem = ({listData}) => {
       if (match) {
         return renderDesktop()
       }
-      return renderMobile()
+      return  renderDesktop()
     }}
   </Media>
 
