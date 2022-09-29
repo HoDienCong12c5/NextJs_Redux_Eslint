@@ -26,14 +26,9 @@ const Home = () => {
     const get = async () => {
       const data = await firebase.FireStore.Product.getAllData();
       if (data?.length >0) {
-        for (const key in data) {
-          if (key.type === "1") {
-            setDataMain(key);
-            setIsLoad(false);
-          }
-        }
+        const tempData= data.find(item=>item.type==="1")
+        setDataMain(tempData); 
       }
-      setIsLoad(false);
     };
     const getOther = async () => {
       const data = await firebase.FireStore.OtherHome.getAllData();
@@ -41,12 +36,11 @@ const Home = () => {
         setDataOther(data);
       }
     };
-    const getImgOther= async() =>{
-      const req=await firebase.FireStorages.otherHome.getPathImg('avataThuy.png')
-      console.log({req})
-    }
-    Promise.all([get(), getOther(),getImgOther()]);
+    Promise.all([get(), getOther()]);
   }, []);
+  const onPageExternal =(url)=>{
+
+  }
   const renderDesktop = () => {
     return (
       <HomeContainer>
@@ -54,14 +48,13 @@ const Home = () => {
           <TitleInfor>{Title.solugun}</TitleInfor>
           <Description>{Des.solugun}</Description>
           <PriceBig>
-            {dataMain?.price && dataMain?.price} VNĐ
-            {"120.000 VNĐ"}
+            {dataMain?.price || "120.000 VNĐ"} VNĐ
           </PriceBig>
-          <BtnBuy fontBold fontSize={20}>
+          <BtnBuy onClick={()=>onPageExternal()} fontBold fontSize={20}>
             {messages.Button.buy}
           </BtnBuy>
         </HomeInfor>
-        {!isLoad && (
+        {dataMain && (
           <ProductMain>
             <ImageMain
               src={dataMain?.img ? dataMain?.img : Img.home.logo}
@@ -70,7 +63,7 @@ const Home = () => {
             />
           </ProductMain>
         )}
-        {!isLoad && (
+        {dataMain && (
           <Element>
             <TypeElement
               icon={Img.home.iconElement}
@@ -103,8 +96,7 @@ const Home = () => {
           <TitleInfor>{Title.solugun}</TitleInfor>
           <Description>{Des.solugun}</Description>
           <PriceBig>
-            {dataMain?.price && dataMain?.price} VNĐ
-            {"120.000 VNĐ"}
+            {dataMain?.price || "120.000 VNĐ"} VNĐ
           </PriceBig>
           <BtnBuy fontBold fontSize={20}>
             {messages.Button.buy}
