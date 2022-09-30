@@ -7,6 +7,7 @@ import HeaderPage, {
   Right,
   Left,
   MenuHome,
+  ContainerLogo
 } from "./style";
 import Media from "react-media";
 import MyModal from "components/MyModal";
@@ -32,12 +33,12 @@ const Header = () => {
     const onClick = (key) => {};
     return (
       <ContainerHome>
-        <div 
-        onClick={()=>{router.push(RoutePage.home.path,RoutePage.home.as )}}
-        style={{ display: "flex", alignItems: "center", gap: 15 }}>
+        <ContainerLogo 
+          onClick={()=>{router.push(RoutePage.home.path,RoutePage.home.as )}}
+        >
           <Image src={Img.home.logo} />
           <NameHost fontWeight>Mlem Coffee</NameHost>
-        </div>
+        </ContainerLogo>
         <Left>
           <MenuHome
             mode="horizontal"
@@ -88,8 +89,7 @@ const Header = () => {
     </HeaderPage>
   );
 };
-// Header.getInitialProps = async ({ query }) => {
-//   const { id} = query
-//   return {id}
-// }
+Header.getInitialProps = async ({ query }) => {
+  return {}
+}
 export default Header;

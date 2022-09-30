@@ -9,6 +9,12 @@ const HeaderPage = styled(Div)`
   height: 70px;
   border-bottom: 3px solid #F5F5F5;
 `
+export const ContainerLogo = styled.div`
+  gap:15px;
+  cursor:pointer;
+  align-items:center;
+  display:flex;
+`
 export const ContainerHome = styled(MediumText)`
   width:100%;
   display:flex;

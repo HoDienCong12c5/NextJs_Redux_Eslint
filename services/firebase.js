@@ -45,6 +45,7 @@ const dbUser = collection(fireStores, 'users')
 const dbCart = collection(fireStores, 'cart')
 const dbOtherHome = collection(fireStores, 'otherHome')
 const dbDiscount = collection(fireStores, 'discount')
+const dbContact = collection(fireStores, 'contact')
 
 const dbImgProduct = 'coffee'
 const dbImgAvatar = 'avatar'
@@ -55,7 +56,8 @@ const functionFire = {
     User:functionStore(dbUser),
     Cart:functionStore(dbCart),
     Discount :functionStore(dbDiscount),
-    OtherHome:functionStore(dbOtherHome)
+    OtherHome:functionStore(dbOtherHome),
+    Contact:functionStore(dbContact)
   },
 
   FireStorages:{

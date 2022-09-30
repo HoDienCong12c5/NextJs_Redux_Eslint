@@ -159,4 +159,7 @@ const Home = () => {
     </Div>
   );
 };
+Home.getInitialProps = async ({ query }) => {
+  return {}
+}
 export default Home;

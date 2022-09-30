@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Image from 'components/Image'
 import messages from 'common/constants'
 import Media from 'react-media'
@@ -13,47 +13,67 @@ import ContainerFooter, {
 } from './styled'
 import img from 'common/images'
 import GGMap from './components/ggMap'
-const Footer = () => {
+import firebase from 'services/firebase'
+import Loading from 'components/Loading'
 
+const Footer = () => {
+  const [dataContact, setDataContact] = useState(null)
+  useEffect(() => {
+    const getData = async () => {
+      const res = await firebase.FireStore.Contact.getAllData()
+      console.log('====================================');
+      console.log({res});
+      console.log('====================================');
+      if (res ) {
+        setDataContact(res[0])
+      }
+    }
+    getData()
+  }, [])
   const renderMoreLink = () => {
     const lisIcon = [
       {
         link: 'https://github.com/HoDienCong12c5',
-        icon: img.footer.iconGithub
+        icon: img.footer.iconGithub,
+        isTab:true
       },
       {
         link: 'https://www.facebook.com/profile.php?id=100080400793331',
-        icon: img.footer.iconFace
+        icon: img.footer.iconFace,
+        isTab:true
       },
       {
         link: 'https://www.instagram.com/hodiencong/',
-        icon: img.footer.iconIntagram
+        icon: img.footer.iconIntagram,
+        isTab:true
       },
       {
         link: 'https://www.linkedin.com/in/c%C3%B4ng-h%E1%BB%93-di%C3%AAn-b3618a225/',
-        icon: img.footer.iconLinkedin
+        icon: img.footer.iconLinkedin,
+        isTab:true
       },
       {
         link: 'https://www.tiktok.com/@hodiencong12c5',
-        icon: img.footer.iconTitok
+        icon: img.footer.iconTitok,
+        isTab:true
       },
       {
         link: 'https://www.youtube.com/channel/UC4gi_FRKga2hVjTK1Ol1PnA',
-        icon: img.footer.iconYoutube
+        icon: img.footer.iconYoutube,
+        isTab:true
       },
-      // { 
-      //   link:'https://www.youtube.com/channel/UC4gi_FRKga2hVjTK1Ol1PnA',
-      //   icon:img.footer.iconZalo
-      // }
+      { 
+        link:`mailto:${dataContact?.gmail}?subject = Feedback&body = Message`,
+        icon:img.footer.iconGmail
+      }
     ]
     return (
       <ContainerMoreLink >
         {
           lisIcon.map(item => (
             <Des className='hasHover' key={item.icon} isHover>
-              <a href={item.link} target="_blank">
+              <a href={item.link} target={item?.isTab &&"_blank"}>
                 <Image src={item.icon} height={30} width={30} />
-
               </a>
             </Des>
           ))
@@ -65,57 +85,62 @@ const Footer = () => {
     <AboutDetails >
       <DesAbout >
         <Image src={img.footer.iconNumberPhone} height={25} width={25} />
-          0392225405
+        {dataContact?.sdt}
       </DesAbout>
       <DesAbout >
         <Image src={img.footer.iconGmail} height={25} width={25} />
-          hodiecong12c5@gmail.com
+        {dataContact?.gmail}
       </DesAbout>
       <DesAbout >
         <Image src={img.footer.iconAddress} height={25} width={25} />
-          83 41, Phạm Văn Bạch, P.15, Tân Bình, TP.HCM
+        {dataContact?.address}
       </DesAbout>
       <DesAbout >
         <Image src={img.footer.iconAddress} height={25} width={25} />
-          Thôn thanh giáo, IAKREL, Đức Cơ, Gia Lai
+        Thôn thanh giáo, IAKREL, Đức Cơ, Gia Lai
       </DesAbout>
-     
+
     </AboutDetails>
   )
-  const renderMobile = () =>{
-   return (
-    <div className={'padding'} >
-      {/* <GGMap/> */}
+  const renderMobile = () => {
+    return (
+      <div className={'padding'} >
+        {/* <GGMap/> */}
       </div>
     )
   }
   const renderDesktop = () => {
     return (
       <ContainerFooter className={'padding'} >
-      <Left >
-        <About > {messages.Title.aboutContact}  </About>
-        <br/>
-        {renderAboutDetails()}
-        {renderMoreLink()}
-        <Des >
-          {/* <Image src={''} height={35} width={35}/> */}
-        </Des>
-      </Left>
-      <Right>
-        <GGMap/>
-      </Right>
-    </ContainerFooter>
+        <Left >
+          <About > {messages.Title.aboutContact}  </About>
+          <br />
+          {
+            dataContact ? renderAboutDetails() : (<Loading />)
+          }
+          {
+            dataContact ? renderMoreLink() : (<Loading />)
+          }
+
+          <Des >
+            {/* <Image src={''} height={35} width={35}/> */}
+          </Des>
+        </Left>
+        <Right>
+          <GGMap dataContact={dataContact}/>
+        </Right>
+      </ContainerFooter>
     )
   }
   return (
     <Media query='(min-width: 768px)'>
-    {(match) => {
-      if (match) {
+      {(match) => {
+        if (match) {
+          return renderDesktop()
+        }
         return renderDesktop()
-      }
-      return renderDesktop()
-    }}
-  </Media>
+      }}
+    </Media>
   )
 }
 export default Footer
