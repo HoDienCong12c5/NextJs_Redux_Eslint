@@ -23,26 +23,31 @@
     "sourceType": "module"
   },
   "rules": {
+    "indent": [2, 2],
+    "no-multi-spaces": ["error", { "ignoreEOLComments": false }],
     "no-undef": "error", 
-    "react/prop-types": 0,
-    "no-console": 0,
-    // "noUnusedLocals": true,
-    "@typescript-eslint/no-unused-vars": ["warning"],
-    // "react/sort-comp": 2,
-    // "react/no-string-refs": 0,
-    // "space-in-brackets": ["warn", "always"],
-    // "space-before-blocks": "error",
-    "react/display-name": "off",
-    "no-unused-vars": "off",
-    "react/react-in-jsx-scope": "off",
     "quotes": ["error", "single"],
-    "no-multi-spaces": "error",
+    "space-in-brackets": ["off", "always"],
+    // "no-unused-vars": "off",
     "semi": "error",
-    "no-trailing-spaces": ["error", { "ignoreComments": true }],
+    "space-in-parens": ["error", "always"],
+    "no-trailing-spaces": "error",
+    "react/prop-types": 0
+
     // "react/no-unescaped-entities": "off",
-    // "@next/next/no-page-custom-font": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "indent": [2, 2]
+    // "no-console": 0,
+    // // "noUnusedLocals": true,
+    // "@typescript-eslint/no-unused-vars": ["warning"],
+    // // "react/sort-comp": 2,
+    // "react/no-string-refs": 0
+    // "space-before-blocks": "error",
+    // "react/display-name": "off"
+
+    // "react/react-in-jsx-scope": "off",
+    
+    // "no-trailing-spaces": ["error", { "ignoreComments": true }],
+    // // "@next/next/no-page-custom-font": "off",
+    // "react-hooks/rules-of-hooks": "error",
+    // "react-hooks/exhaustive-deps": "warn"
   }
 }

@@ -7,11 +7,10 @@ import ContainerOther, {
   BtnMore
 } from './style'
 import Media from 'react-media'
-import messages from "common/constants";
+import messages, {Button, Title as Name, RoutePage} from 'common/constants'
 
-import {Button, Title as Name, RoutePage} from 'common/constants'
 import { useRouter } from 'next/router'
-const Item=({data, onClick})=>{
+const Item=( {data, onClick} )=>{
 
   return (
     <ItemOther >
@@ -27,27 +26,27 @@ const Item=({data, onClick})=>{
   )
 }
 
-const OtherItem = ({listData}) => {
+const OtherItem = ( {listData} ) => {
   const router = useRouter()
-  const onClick=(id)=>{
-    router.push('/Screen/Home')
+  const onClick=( id )=>{
+    router.push( '/Screen/Home' )
 
     // router.push(`${RoutePage.home.path}`,`${RoutePage.productDetails.as}/?id=${id}`, { shallow: true })
   }
-  
+
   const renderDesktop = ()=>{
     return(
       <ContainerOther>
         {
           listData?.length >0 && (
-            listData.map(item=>(
+            listData.map( item=>(
               <Item
-              key={item.id}
-              onClick={()=>onClick(item.IDProduct)}
-              data={item}
-              desc={Button.detail}
-            />
-            ))
+                key={item.id}
+                onClick={()=>onClick( item.IDProduct )}
+                data={item}
+                desc={Button.detail}
+              />
+            ) )
           )
         }
       </ContainerOther>
@@ -62,13 +61,13 @@ const OtherItem = ({listData}) => {
   }
   return (
     <Media query='(min-width:768px)'>
-    {(match) => {
-      if (match) {
+      {( match ) => {
+        if ( match ) {
+          return renderDesktop()
+        }
         return renderDesktop()
-      }
-      return  renderDesktop()
-    }}
-  </Media>
+      }}
+    </Media>
 
   )
 }

@@ -41,7 +41,11 @@ export const DivRow = styled.div`
 export const Div = styled.div`
   width: 100%;
   padding: 0px 100px;
+  max-width: 1500px;
   /* background-color:${Color.grey} ; */
+  @media screen and (max-width: 1300px) {
+    padding: 0px 40px;
+  }
   @media screen and (max-width: 768px) {
     padding: 0px 40px;
   }
