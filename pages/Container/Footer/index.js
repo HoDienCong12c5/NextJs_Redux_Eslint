@@ -121,13 +121,11 @@ const Footer = () => {
           {
             dataContact ? renderMoreLink() : (<Loading />)
           }
-
-          <Des >
-            {/* <Image src={''} height={35} width={35}/> */}
-          </Des>
         </Left>
+
         <Right>
-          <GGMap dataContact={dataContact}/>
+        { dataContact?.xAddress && <GGMap dataContact={dataContact}/>}
+        
         </Right>
       </ContainerFooter>
     )

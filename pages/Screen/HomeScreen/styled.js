@@ -94,6 +94,7 @@ export const ContainerFooterHome = styled.div`
   }
   @media screen and (max-width: 768px) {
     flex-flow: column wrap;
+    margin-top: 10px;
   }
 `
 export default HomeContainer

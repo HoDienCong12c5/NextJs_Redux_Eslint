@@ -11,7 +11,7 @@ const ContainerOther = styled.div`
   max-width:90%;
   justify-content:center;
   @media screen and (max-width: 768px) {
-    /* flex-flow: column wrap; */
+    max-width:100%;
   }
 `
 export const ItemOther = styled.div`

@@ -5,10 +5,14 @@ const ContainerFooter = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  margin: 15px 0px;
   @media screen and (max-width: 768px) {
     flex-flow: column wrap;
+    gap:20px;
+    margin-bottom:50px;
+    /* align-items: center; */
   }
-  margin: 15px 0px;
+
 `;
 
 export const Left = styled.div`
