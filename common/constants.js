@@ -20,7 +20,8 @@ const messages={
     send: 'Gửi',
     submit:'Xác nhận',
     back:'Quay lại',
-    detail:'Chi tiết'
+    detail:'Chi tiết',
+    addCart: 'Thêm vào giỏ hàng'
   },
   Title : {
     address:'Địa chỉ',

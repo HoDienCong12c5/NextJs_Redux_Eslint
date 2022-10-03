@@ -51,7 +51,7 @@ const ProductDetails = ( { props } ) => {
               title={messages.Button.buy}
             />
             <ButtonBuy
-              title={messages.Button.}
+              title={messages.Button.addCart}
             />
           </div>
         </InforRight>
