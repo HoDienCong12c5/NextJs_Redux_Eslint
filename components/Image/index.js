@@ -1,8 +1,8 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image'
 const ImageBase = ({
   src,
-  alt = "Picture of the author",
+  alt = 'Picture of the author',
   quality = 50,
   width = 50,
   height = 50,
@@ -12,8 +12,8 @@ const ImageBase = ({
   return (
     <div
       style={{
-        width: fullSize ? "100%" : width,
-        height: fullSize ? "100%" : height,
+        width: fullSize ? '100%' : width,
+        height: fullSize ? '100%' : height,
       }}
     >
       <Image
@@ -21,16 +21,16 @@ const ImageBase = ({
         src={src}
         alt={alt}
         quality={quality}
-        width={"100%"}
-        height={"100%"}
-        sizes={"min-width: 100%"}
+        width={'100%'}
+        height={'100%'}
+        sizes={'min-width: 100%'}
         {...props}
       />
     </div>
 
-    // <div>sdfghsd
-    //   <img src={src}/>
-    // </div>
-  );
-};
-export default ImageBase;
+  // <div>sdfghsd
+  //   <img src={src}/>
+  // </div>
+  )
+}
+export default ImageBase

@@ -4,7 +4,7 @@ import HomePage from 'pages/Screen/HomeScreen'
 export default function Home (props) {
   return (
     <div className={styles.container}>
-      <HomePage /> 
+      <HomePage />
     </div>
   )
 }

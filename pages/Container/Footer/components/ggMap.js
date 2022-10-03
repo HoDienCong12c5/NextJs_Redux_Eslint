@@ -1,8 +1,8 @@
-import React from "react";
-import GoogleMapReact from "google-map-react";
-import styled from "styled-components";
-import Img from "common/images";
-import Image from "components/Image";
+import React from 'react'
+import GoogleMapReact from 'google-map-react'
+import styled from 'styled-components'
+import Img from 'common/images'
+import Image from 'components/Image'
 const Container = styled.div`
   width: 300px;
   height: 200px;
@@ -10,27 +10,27 @@ const Container = styled.div`
     width:100%;
     height: 250px;
   }
-`;
+`
 const ContainerItem = styled.div`
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
   }
-`;
+`
 const AnyReactComponent = ({ text }) => (
   <ContainerItem>
     <Image src={Img.footer.iconGPS} width={30} height={35} />
   </ContainerItem>
-);
+)
 export default function GGMap({ dataContact }) {
-  console.log("dataContact.xAddress", dataContact.xAddress);
+  console.log('dataContact.xAddress', dataContact.xAddress)
   const defaultProps = {
     center: {
       lat: Number(dataContact.xAddress),
       lng: Number(dataContact.yAddress),
     },
     zoom: 14,
-  };
+  }
 
   return (
     <Container>
@@ -50,8 +50,8 @@ export default function GGMap({ dataContact }) {
     // Important! Always set the container height explicitly
     // <div style={{ height: '100vh', width: '100%' }}>
 
-    // </div>
-  );
+  // </div>
+  )
 }
 // import React, { useEffect, useState, useRef } from "react";
 // import GoogleMapReact from "google-map-react";

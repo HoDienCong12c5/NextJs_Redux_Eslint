@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from 'react'
 import HeaderPage, {
   ButtonMore,
   Image,
@@ -8,32 +8,32 @@ import HeaderPage, {
   Left,
   MenuHome,
   ContainerLogo
-} from "./style";
-import Media from "react-media";
-import MyModal from "components/MyModal";
-import { NamePage } from "common/constants";
-import Img from "common/images";
+} from './style'
+import Media from 'react-media'
+import MyModal from 'components/MyModal'
+import messages, { NamePage ,RoutePage} from 'common/constants'
+import Img from 'common/images'
 import { useRouter } from 'next/router'
-import messages, {RoutePage} from "common/constants";
+
 
 const itemMenu = [
   { label: NamePage.home, key: NamePage.home }, // remember to pass the key prop
   { label: NamePage.about, key: NamePage.about },
   { label: NamePage.contact, key: NamePage.contact },
   { label: NamePage.myCart, key: NamePage.myCart },
-];
+]
 const Header = () => {
   const router = useRouter()
-  const [isLogin, setIsLogin] = useState(false);
-  const myModal = useRef(null);
+  const [isLogin, setIsLogin] = useState(false)
+  const myModal = useRef(null)
   const onClick = (key) => {
-    console.log({ key });
-  };
+    console.log({ key })
+  }
   const renderDesktop = () => {
-    const onClick = (key) => {};
+    const onClick = (key) => {}
     return (
       <ContainerHome>
-        <ContainerLogo 
+        <ContainerLogo
           onClick={()=>{router.push(RoutePage.home.path,RoutePage.home.as )}}
         >
           <Image src={Img.home.logo} />
@@ -43,7 +43,7 @@ const Header = () => {
           <MenuHome
             mode="horizontal"
             onClick={onClick}
-            defaultSelectedKeys={["home"]}
+            defaultSelectedKeys={['home']}
           >
             {itemMenu.map((item, index) => (
               <MenuHome.Item key={index} icon={<></>}>
@@ -56,14 +56,14 @@ const Header = () => {
           <ButtonMore onClick={onClick} title={messages.Button.details} />
         </Right>
       </ContainerHome>
-    );
-  };
+    )
+  }
   const renderMobile = () => {
     return (
       <ContainerHome>
-        <div 
+        <div
           onClick={()=>{router.push(RoutePage.home.path,RoutePage.home.as )}}
-         style={{ display: "flex", alignItems: "center", gap: 15 }}
+          style={{ display: 'flex', alignItems: 'center', gap: 15 }}
         >
           <Image src={Img.home.logo} />
           <NameHost fontWeight>Mlem Coffee</NameHost>
@@ -72,24 +72,24 @@ const Header = () => {
           <ButtonMore>{messages.Button.details}</ButtonMore>
         </Left>
       </ContainerHome>
-    );
-  };
+    )
+  }
 
   return (
     <HeaderPage>
       <Media query="(min-width: 768px)">
         {(match) => {
           if (match) {
-            return renderDesktop();
+            return renderDesktop()
           }
-          return renderMobile();
+          return renderMobile()
         }}
       </Media>
       <MyModal ref={myModal} />
     </HeaderPage>
-  );
-};
+  )
+}
 Header.getInitialProps = async ({ query }) => {
   return {}
 }
-export default Header;
+export default Header

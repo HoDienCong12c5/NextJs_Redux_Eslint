@@ -1,6 +1,6 @@
-import { LoadingOutlined } from '@ant-design/icons';
-import { Spin } from 'antd';
-import React from 'react';
+import { LoadingOutlined } from '@ant-design/icons'
+import { Spin } from 'antd'
+import React from 'react'
 const antIcon = (
   <LoadingOutlined
     style={{
@@ -8,8 +8,8 @@ const antIcon = (
     }}
     spin
   />
-);
+)
 
-const App = () => <Spin indicator={antIcon} />;
+const App = () => <Spin indicator={antIcon} />
 
-export default App;
+export default App

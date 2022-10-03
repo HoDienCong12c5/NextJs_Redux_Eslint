@@ -21,9 +21,9 @@ const Footer = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await firebase.FireStore.Contact.getAllData()
-      console.log('====================================');
-      console.log({res});
-      console.log('====================================');
+      console.log('====================================')
+      console.log({res})
+      console.log('====================================')
       if (res ) {
         setDataContact(res[0])
       }
@@ -62,7 +62,7 @@ const Footer = () => {
         icon: img.footer.iconYoutube,
         isTab:true
       },
-      { 
+      {
         link:`mailto:${dataContact?.gmail}?subject = Feedback&body = Message`,
         icon:img.footer.iconGmail
       }
@@ -72,7 +72,7 @@ const Footer = () => {
         {
           lisIcon.map(item => (
             <Des className='hasHover' key={item.icon} isHover>
-              <a href={item.link} target={item?.isTab &&"_blank"}>
+              <a href={item.link} target={item?.isTab &&'_blank'}>
                 <Image src={item.icon} height={30} width={30} />
               </a>
             </Des>
@@ -124,8 +124,8 @@ const Footer = () => {
         </Left>
 
         <Right>
-        { dataContact?.xAddress && <GGMap dataContact={dataContact}/>}
-        
+          { dataContact?.xAddress && <GGMap dataContact={dataContact}/>}
+
         </Right>
       </ContainerFooter>
     )
