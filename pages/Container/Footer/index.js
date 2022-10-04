@@ -17,19 +17,19 @@ import firebase from 'services/firebase'
 import Loading from 'components/Loading'
 
 const Footer = () => {
-  const [dataContact, setDataContact] = useState(null)
-  useEffect(() => {
+  const [dataContact, setDataContact] = useState( null )
+  useEffect( () => {
     const getData = async () => {
       const res = await firebase.FireStore.Contact.getAllData()
-      console.log('====================================');
-      console.log({res});
-      console.log('====================================');
-      if (res ) {
-        setDataContact(res[0])
+      console.log( '====================================' )
+      console.log( {res} )
+      console.log( '====================================' )
+      if ( res ) {
+        setDataContact( res[0] )
       }
     }
     getData()
-  }, [])
+  }, [] )
   const renderMoreLink = () => {
     const lisIcon = [
       {
@@ -62,7 +62,7 @@ const Footer = () => {
         icon: img.footer.iconYoutube,
         isTab:true
       },
-      { 
+      {
         link:`mailto:${dataContact?.gmail}?subject = Feedback&body = Message`,
         icon:img.footer.iconGmail
       }
@@ -70,13 +70,13 @@ const Footer = () => {
     return (
       <ContainerMoreLink >
         {
-          lisIcon.map(item => (
+          lisIcon.map( item => (
             <Des className='hasHover' key={item.icon} isHover>
-              <a href={item.link} target={item?.isTab &&"_blank"}>
+              <a href={item.link} target={item?.isTab &&'_blank'}>
                 <Image src={item.icon} height={30} width={30} />
               </a>
             </Des>
-          ))
+          ) )
         }
       </ContainerMoreLink>
     )
@@ -116,10 +116,10 @@ const Footer = () => {
           <About > {messages.Title.aboutContact}  </About>
           <br />
           {
-            dataContact ? renderAboutDetails() : (<Loading />)
+            dataContact ? renderAboutDetails() : ( <Loading /> )
           }
           {
-            dataContact ? renderMoreLink() : (<Loading />)
+            dataContact ? renderMoreLink() : ( <Loading /> )
           }
 
           <Des >
@@ -134,8 +134,8 @@ const Footer = () => {
   }
   return (
     <Media query='(min-width: 768px)'>
-      {(match) => {
-        if (match) {
+      {( match ) => {
+        if ( match ) {
           return renderDesktop()
         }
         return renderDesktop()

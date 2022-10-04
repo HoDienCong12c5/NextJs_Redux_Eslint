@@ -17,8 +17,8 @@ import { Div } from 'components/DivBase'
 const { Content } = Layout
 
 class BaseContainer extends PureComponent {
-  constructor (props) {
-    super(props)
+  constructor ( props ) {
+    super( props )
     this.state = {}
     this.myModal = React.createRef()
   }
@@ -35,18 +35,18 @@ class BaseContainer extends PureComponent {
     this.myModal.current.closeModal()
   }
 
-  callback = (callback = null) => {
+  callback = ( callback = null ) => {
     // Observer.emit(OBSERVER_KEY.ALREADY_SIGNED)
     this.closeModal()
     callback && callback()
   }
 
-  callbackErr = (callbackErr = null) => {
+  callbackErr = ( callbackErr = null ) => {
     this.closeModal()
     callbackErr && callbackErr()
   }
 
-  handleSignIn = async (callback = null, callbackErr = null) => {
+  handleSignIn = async ( callback = null, callbackErr = null ) => {
     // if (isMobile) {
     //   Observer.emit(OBSERVER_KEY.SIGN_WALLET_CONNECT)
     // } else {
@@ -96,7 +96,7 @@ class BaseContainer extends PureComponent {
           </Content>
         </Layout>
         <Footer />
-        {/* 
+        {/*
         {
           PAGE_SHOW_SCROLL_TOP.includes(Router.pathname) &&
           <BackTop className={isMobile && 'MB20'} style={{ zIndex: 9999 }}>

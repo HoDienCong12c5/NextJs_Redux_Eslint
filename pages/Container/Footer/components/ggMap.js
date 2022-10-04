@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import GoogleMapReact from 'google-map-react';
+import React, { useEffect, useState, useRef } from 'react'
+import GoogleMapReact from 'google-map-react'
 import styled from 'styled-components'
 import Loading from 'components/Loading'
 const Container = styled.div`
@@ -9,20 +9,20 @@ min-height: 200px;
 
 width: 100%;
 `
-const AnyReactComponent = ({ text }) =>
+const AnyReactComponent = ( { text } ) =>
   <div style={{ background: 'red', padding: 10, borderRadius: 10 }}>
     ''
   </div>
 
-export default function GGMap ({dataContact}) {
-  const dataRef = useRef(null)
-  const [data, setData] = useState('')
-  useEffect(() => {
+export default function GGMap ( {dataContact} ) {
+  const dataRef = useRef( null )
+  const [data, setData] = useState( '' )
+  useEffect( () => {
     dataRef.current=dataContact
-  }, [])
-  const onClick = (key, childProps) => {
+  }, [] )
+  const onClick = ( key, childProps ) => {
     dataRef.current.lat1 = dataRef.current.lat
-    setData(dataRef.current)
+    setData( dataRef.current )
   }
 
   return (
@@ -34,7 +34,7 @@ export default function GGMap ({dataContact}) {
             onChildClick={onClick}
             onBoundsChange={onClick}
             onChangeHandler={onClick}
-            bootstrapURLKeys={{ key: "" }}
+            bootstrapURLKeys={{ key: '' }}
             defaultCenter={{
               lat: dataContact.xAddress,
               lng: dataContact.yAddress
@@ -53,5 +53,5 @@ export default function GGMap ({dataContact}) {
       }
 
     </Container>
-  );
+  )
 }
