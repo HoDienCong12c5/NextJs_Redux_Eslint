@@ -37,7 +37,6 @@ export const NameHost = styled(MediumText)`
 export const Left = styled.div`
 display: flex;
 flex-direction: row wrap;
-width: 80%;
 `
 export const ButtonMore = styled(ButtonBasic)`
 

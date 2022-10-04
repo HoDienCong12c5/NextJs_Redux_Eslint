@@ -15,7 +15,8 @@ const Img={
     iconYoutube: require('public/Assets/Image/Footer/iconYoutobe.png'),
     iconIntagram: require('public/Assets/Image/Footer/iconIntagram.png'),
     iconTitok: require('public/Assets/Image/Footer/iconTiktok.png'),
-    iconZalo : require('public/Assets/Image/Footer/iconZalo.png')
+    iconZalo : require('public/Assets/Image/Footer/iconZalo.png'),
+    iconGPS: require('public/Assets/Image/Footer/iconGPS.png')
   }
 }
 export default Img
