@@ -40,11 +40,8 @@ const Header = () => {
   },[] )
 
   const getPrivateKey= async( key=null )=>{
-    const privateKey = ReduxServices.getPrivateKey()
-    console.log( '====================================' )
-    console.log( {privateKey} )
-
-    console.log( '====================================' )
+    const data= getDataLocal( 'key' )
+    alert( data )
   }
   const onClickSetPrivateKey=async( key )=>{
     alert( key )
