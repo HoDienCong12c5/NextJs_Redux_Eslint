@@ -8,8 +8,20 @@ import BaseContainer from 'pages/Container'
 import images from 'common/images'
 import { NextSeo, DefaultSeo } from 'next-seo'
 import HeadSeo from './seoConfig'
+import ReduxServices from 'common/reduxService'
 
+async function onClickSetPrivateKey( key ) {
+  alert( key )
+  await ReduxServices.setPrivateKey ( key )
+}
 class XCreation extends App {
+
+  onClickSetPrivateKey=async( key )=>{
+    alert( key )
+    await ReduxServices.setPrivateKey ( key )
+
+  }
+
   render () {
     const { Component, pageProps } = this.props
     return (
@@ -56,7 +68,7 @@ class XCreation extends App {
     )
   }
 }
-XCreation.getInitialProps = async ({ query }) => {
+XCreation.getInitialProps = async ( { query } ) => {
   return {}
 }
 export default XCreation
