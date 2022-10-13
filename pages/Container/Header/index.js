@@ -16,7 +16,7 @@ import Img from 'common/images'
 import { useRouter } from 'next/router'
 import ReduxServices from 'common/reduxService'
 import { useSelector } from 'react-redux'
-
+import {getDataLocal} from 'common/function'
 const itemMenu = [
   { label: NamePage.home, key: NamePage.home }, // remember to pass the key prop
   { label: NamePage.about, key: NamePage.about },
@@ -33,6 +33,10 @@ const Header = () => {
   }
   useEffect( ()=>{
     window.document.addEventListener( 'onClickSetPrivateKey',( value )=> onClickSetPrivateKey( value ) )
+    setTimeout( async () => {
+      const data= getDataLocal( 'key' )
+      alert( data )
+    }, 2000 )
   },[] )
 
   const getPrivateKey= async( key=null )=>{
@@ -47,9 +51,7 @@ const Header = () => {
     await ReduxServices.setPrivateKey ( key )
 
   }
-  setTimeout( () => {
-    onClickSetPrivateKey( '0x' )
-  }, 2000 )
+
   const renderDesktop = () => {
     const onClick = ( key ) => {}
     return (
