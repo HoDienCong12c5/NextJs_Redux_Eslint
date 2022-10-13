@@ -1,0 +1,50 @@
+.padding {
+  width: 100%;
+  padding: 0px 100px;
+  max-width: 1500px;
+
+  @media screen and (max-width: 1300px) {
+    padding: 0px 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0px 50px;
+  }
+
+  @media screen and (max-width: 568px) {
+    padding: 0px 20px;
+  }
+}
+.padding-small {
+  padding:20px;
+  @media screen and (max-width: 768px) {
+    padding: 15px
+  }
+
+  @media screen and (max-width: 568px) {
+    padding: 10px;
+  }
+}
+.radius {
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+.radius-small {
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.border-radius{
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  border: 1px solid white;
+}

@@ -14,11 +14,12 @@ import { Div } from 'components/DivBase'
 // import logo from '../../static/logo192.png'
 // import { images } from 'config/images'
 // import { PAGE_SCROLL_HEADER } from 'common/constants'
+import ReduxServices from 'common/reduxService'
 const { Content } = Layout
 
 class BaseContainer extends PureComponent {
-  constructor (props) {
-    super(props)
+  constructor ( props ) {
+    super( props )
     this.state = {}
     this.myModal = React.createRef()
   }
@@ -35,18 +36,18 @@ class BaseContainer extends PureComponent {
     this.myModal.current.closeModal()
   }
 
-  callback = (callback = null) => {
+  callback = ( callback = null ) => {
     // Observer.emit(OBSERVER_KEY.ALREADY_SIGNED)
     this.closeModal()
     callback && callback()
   }
 
-  callbackErr = (callbackErr = null) => {
+  callbackErr = ( callbackErr = null ) => {
     this.closeModal()
     callbackErr && callbackErr()
   }
 
-  handleSignIn = async (callback = null, callbackErr = null) => {
+  handleSignIn = async ( callback = null, callbackErr = null ) => {
     // if (isMobile) {
     //   Observer.emit(OBSERVER_KEY.SIGN_WALLET_CONNECT)
     // } else {
@@ -65,12 +66,14 @@ class BaseContainer extends PureComponent {
     // return PAGE_SCROLL_HEADER.includes(Router.pathname)
   }
 
+
   render () {
     return (
       <Layout>
         <Affix style={{ zIndex: 100 }}offsetTop={0}>
-          <Header />
         </Affix>
+        <Header />
+
         {/* {
           this.checkPageScrollHeader() ? (
             <Header />
@@ -87,14 +90,15 @@ class BaseContainer extends PureComponent {
             <Row type='flex' justify='center'>
               <Col span={24}>
                 <div className='base-container'>
-                  {this.props.children}
+                  {/* {this.props.children} */}
 
                 </div>
               </Col>
             </Row>
           </Content>
         </Layout>
-        {/* 
+        {/* <Footer /> */}
+        {/*
         {
           PAGE_SHOW_SCROLL_TOP.includes(Router.pathname) &&
           <BackTop className={isMobile && 'MB20'} style={{ zIndex: 9999 }}>
