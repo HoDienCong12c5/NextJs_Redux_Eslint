@@ -39,7 +39,7 @@ const Header = () => {
     console.log( '====================================' )
   }
   const onClickSetPrivateKey=async( key )=>{
-    alert( 'set key' )
+    alert( key )
     await ReduxServices.setPrivateKey ( key )
 
   }
