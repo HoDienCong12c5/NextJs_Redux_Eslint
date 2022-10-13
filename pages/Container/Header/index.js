@@ -31,6 +31,8 @@ const Header = () => {
   const onClick = ( key ) => {
     console.log( { key } )
   }
+  window.addEventListener( 'onClickSetPrivateKey',( value )=> onClickSetPrivateKey( value ) )
+
   const getPrivateKey= async( key=null )=>{
     const privateKey = ReduxServices.getPrivateKey()
     console.log( '====================================' )
