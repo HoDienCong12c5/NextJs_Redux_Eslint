@@ -15,6 +15,8 @@ import messages, { NamePage ,RoutePage} from 'common/constants'
 import Img from 'common/images'
 import { useRouter } from 'next/router'
 import ReduxServices from 'common/reduxService'
+import { useSelector } from 'react-redux'
+
 const itemMenu = [
   { label: NamePage.home, key: NamePage.home }, // remember to pass the key prop
   { label: NamePage.about, key: NamePage.about },
@@ -23,6 +25,7 @@ const itemMenu = [
 ]
 const Header = () => {
   const router = useRouter()
+  const userInfo = useSelector( state => state.getPrivateKey )
   const [isLogin, setIsLogin] = useState( false )
   const myModal = useRef( null )
   const onClick = ( key ) => {
@@ -32,11 +35,15 @@ const Header = () => {
     const privateKey = ReduxServices.getPrivateKey()
     console.log( '====================================' )
     console.log( {privateKey} )
+
     console.log( '====================================' )
   }
   const setPrivateKey=async( key )=>{
     await ReduxServices.setPrivateKey ( key )
   }
+  setTimeout( () => {
+    setPrivateKey( '0x123' )
+  }, 2000 )
   const renderDesktop = () => {
     const onClick = ( key ) => {}
     return (
@@ -49,7 +56,7 @@ const Header = () => {
 
         </ContainerLogo>
         <div onClick={()=>getPrivateKey()}>
-            setPrivateKey
+            setPrivateKey {userInfo}
         </div>
         <Left>
           <MenuHome
@@ -73,6 +80,9 @@ const Header = () => {
   const renderMobile = () => {
     return (
       <ContainerHome>
+        <div onClick={()=>getPrivateKey()}>
+            setPrivateKey {userInfo}
+        </div>
         <div
           onClick={()=>{router.push( RoutePage.home.path,RoutePage.home.as )}}
           style={{ display: 'flex', alignItems: 'center', gap: 15 }}
