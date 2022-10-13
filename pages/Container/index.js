@@ -14,6 +14,7 @@ import { Div } from 'components/DivBase'
 // import logo from '../../static/logo192.png'
 // import { images } from 'config/images'
 // import { PAGE_SCROLL_HEADER } from 'common/constants'
+import ReduxServices from 'common/reduxService'
 const { Content } = Layout
 
 class BaseContainer extends PureComponent {
@@ -65,6 +66,7 @@ class BaseContainer extends PureComponent {
     // return PAGE_SCROLL_HEADER.includes(Router.pathname)
   }
 
+
   render () {
     return (
       <Layout>
@@ -88,14 +90,14 @@ class BaseContainer extends PureComponent {
             <Row type='flex' justify='center'>
               <Col span={24}>
                 <div className='base-container'>
-                  {this.props.children}
+                  {/* {this.props.children} */}
 
                 </div>
               </Col>
             </Row>
           </Content>
         </Layout>
-        <Footer />
+        {/* <Footer /> */}
         {/*
         {
           PAGE_SHOW_SCROLL_TOP.includes(Router.pathname) &&

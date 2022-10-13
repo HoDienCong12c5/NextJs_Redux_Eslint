@@ -14,7 +14,7 @@ import MyModal from 'components/MyModal'
 import messages, { NamePage ,RoutePage} from 'common/constants'
 import Img from 'common/images'
 import { useRouter } from 'next/router'
-
+import ReduxServices from 'common/reduxService'
 const itemMenu = [
   { label: NamePage.home, key: NamePage.home }, // remember to pass the key prop
   { label: NamePage.about, key: NamePage.about },
@@ -28,6 +28,15 @@ const Header = () => {
   const onClick = ( key ) => {
     console.log( { key } )
   }
+  const getPrivateKey= async( key=null )=>{
+    const privateKey = ReduxServices.getPrivateKey()
+    console.log( '====================================' )
+    console.log( {privateKey} )
+    console.log( '====================================' )
+  }
+  const setPrivateKey=async( key )=>{
+    await ReduxServices.setPrivateKey ( key )
+  }
   const renderDesktop = () => {
     const onClick = ( key ) => {}
     return (
@@ -37,7 +46,11 @@ const Header = () => {
         >
           <Image src={Img.home.logo} />
           <NameHost fontWeight>Mlem Coffee</NameHost>
+
         </ContainerLogo>
+        <div onClick={()=>getPrivateKey()}>
+            setPrivateKey
+        </div>
         <Left>
           <MenuHome
             mode="horizontal"
