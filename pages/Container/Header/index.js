@@ -38,11 +38,13 @@ const Header = () => {
 
     console.log( '====================================' )
   }
-  const setPrivateKey=async( key )=>{
+  const onClickSetPrivateKey=async( key )=>{
+    alert( 'set key' )
     await ReduxServices.setPrivateKey ( key )
+
   }
   setTimeout( () => {
-    setPrivateKey( '0x123' )
+    onClickSetPrivateKey( '0x' )
   }, 2000 )
   const renderDesktop = () => {
     const onClick = ( key ) => {}
