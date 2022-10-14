@@ -33,18 +33,15 @@ const Header = () => {
   }
   useEffect( ()=>{
     window.document.addEventListener( 'onClickSetPrivateKey',( value )=> onClickSetPrivateKey( value ) )
-    setTimeout( async () => {
-      const data= getDataLocal( 'key' )
-      alert( data )
-    }, 2000 )
+
   },[] )
 
   const getPrivateKey= async( key=null )=>{
     const data= getDataLocal( 'key' )
-    alert( data )
+
   }
   const onClickSetPrivateKey=async( key )=>{
-    alert( key )
+
     await ReduxServices.setPrivateKey ( key )
 
   }
