@@ -23,17 +23,29 @@ const itemMenu = [
   { label: NamePage.contact, key: NamePage.contact },
   { label: NamePage.myCart, key: NamePage.myCart },
 ]
-const Header = () => {
+const Header = ( props ) => {
   const router = useRouter()
+  const {name} = router.query
   const userInfo = useSelector( state => state.getPrivateKey )
   const [isLogin, setIsLogin] = useState( false )
+  const [textAddress, setTextAddress] = useState( 'nodata' )
+  const [params, setParams] = useState( 'nodata' )
   const myModal = useRef( null )
   const onClick = ( key ) => {
     console.log( { key } )
   }
   useEffect( ()=>{
-    window.document.addEventListener( 'onClickSetPrivateKey',( value )=> onClickSetPrivateKey( value ) )
+    if( name ){
+      setParams( name )
+      const data= getDataLocal( name )
+      console.log( {data} )
+      if( data ){
+        setTextAddress( data )
+      }else{
+        setTextAddress( 'nodata' )
+      }
 
+    }
   },[] )
 
   const getPrivateKey= async( key=null )=>{
@@ -58,7 +70,7 @@ const Header = () => {
 
         </ContainerLogo>
         <div onClick={()=>getPrivateKey()}>
-            setPrivateKey {userInfo}
+          {textAddress} :{params}
         </div>
         <Left>
           <MenuHome
@@ -83,7 +95,7 @@ const Header = () => {
     return (
       <ContainerHome>
         <div onClick={()=>getPrivateKey()}>
-            setPrivateKey {userInfo}
+          {textAddress} : {params}
         </div>
         <div
           onClick={()=>{router.push( RoutePage.home.path,RoutePage.home.as )}}
@@ -114,6 +126,7 @@ const Header = () => {
   )
 }
 Header.getInitialProps = async ( { query } ) => {
-  return {}
+  const {name} =query
+  return {name}
 }
 export default Header
