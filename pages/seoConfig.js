@@ -5,44 +5,33 @@ const HeadSeo = () => {
   return (
     <Head >
       <link rel="shortcut icon" href="/Assets/Image/Home/logo.jpg" />
-      {/* <title>Mlem Coffee</title>
-      <meta charSet='utf-8' />
-      <meta name="description" content={'Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai.'} />
-      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-      <meta property="og:title" content={"Mlem Coffee"} key="ogtitle" />
-      <meta property="og:description" content={'Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai.'} key="ogdec" /> */}
-      <NextSeo
-        title="Mlem Coffee"
-        titleTemplate="Mlem Coffee"
-        defaultTitle="Mlem Coffee"
-        description="Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai."
-        canonical="https://malemcoffee.com/"
-        openGraph={{
-          url: 'https://malemcoffee.com/',
-          title: 'Mlem Coffee',
-          description: 'Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai.',
-          images: [
-            {
-              url: 'public/Assets/Image/Home/logo.jpg',
-              width: 800,
-              height: 420,
-              alt: 'Mlem Coffee',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@mlemcoffee',
-          site: '@mlemcoffee',
-          cardType: 'summary_large_image',
-        }}
-        facebook={{
-          appId: '100080400793331',
-        }}
-      />
+      {/* <!-- HTML Meta Tags --> */}
+      <title>Mlem Coffee</title>
+      <meta name="description" content="Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai."/>
+
+      {/* <!-- Google / Search Engine Tags --> */}
+      <meta itemProp="name" content="Mlem Coffee"/>
+      <meta itemProp="description" content="Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai."/>
+      <meta itemProp="image" content="public/Assets/Image/Home/logo.jpg"/>
+
+      {/* <!-- Facebook Meta Tags --> */}
+      <meta property="og:url" content="https://mlemcoffee.vercel.app/"/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:title" content="Mlem Coffee"/>
+      <meta property="og:description" content="Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai."/>
+      <meta property="og:image" content="public/Assets/Image/Home/logo.jpg"/>
+
+      {/* <!-- Twitter Meta Tags --> */}
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta name="twitter:title" content="Mlem Coffee"/>
+      <meta name="twitter:description" content="Mlem coffee cung cấp cà phê tốt nhất cho bạn từ tỉnh Gia lai."/>
+      <meta name="twitter:image" content="public/Assets/Image/Home/logo.jpg"/>
     </Head>
   )
 }
-HeadSeo.getInitialProps = async ({ query }) => {
+
+export async function getServerSideProps ( { params, res } ) {
   return {}
 }
+
 export default HeadSeo
